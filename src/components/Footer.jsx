@@ -17,12 +17,7 @@ import {
   Code as CodeIcon,
 } from '@mui/icons-material';
 
-/**
- * Footer Component
- * Contains branding, quick navigation links, and social media connectivity.
- */
 const Footer = () => {
-  // Dynamic year for copyright consistency
   const currentYear = new Date().getFullYear();
 
   const footerLinks = [
@@ -47,32 +42,32 @@ const Footer = () => {
         backgroundColor: 'background.paper',
         borderTop: '1px solid',
         borderColor: 'divider',
-        mt: 'auto', // Ensures footer stays at bottom if content is short
-        py: 3,
+        mt: 'auto',
+        py: 4,
       }}
     >
       <Container maxWidth="lg">
-        {/* Main Footer Content */}
-        <Grid container spacing={{ xs: 4, md: 8 }} alignItems="flex-start">
+        {/* Головний контейнер Grid */}
+        <Grid container spacing={4}>
           
-          {/* Branding Section */}
-          <Grid size={{ xs: 12, md: 5 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-              <CodeIcon sx={{ mr: 1, color: 'primary.main', fontSize: 20 }} />
-              <Typography variant="subtitle1" sx={{ fontWeight: 700, letterSpacing: 0.5 }}>
+          {/* Брендинг - займає повну ширину на мобільних, 5/12 на десктопі */}
+          <Grid item xs={12} md={5}>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+              <CodeIcon sx={{ mr: 1, color: 'primary.main', fontSize: 24 }} />
+              <Typography variant="h6" sx={{ fontWeight: 700, letterSpacing: 0.5 }}>
                 Yurii Zvirianskyi
               </Typography>
             </Box>
-            <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 350, lineHeight: 1.6 }}>
+            <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 380, lineHeight: 1.7 }}>
               Full-Stack Developer building modern, responsive web applications with React, Node.js & MongoDB. Focused on clean code and user experience.
             </Typography>
           </Grid>
 
-          {/* Navigation Links */}
-          <Grid size={{ xs: 6, md: 3 }}>
+          {/* Навігація - 6/12 (половина) на мобільних, 3/12 на десктопі */}
+          <Grid item xs={6} md={3}>
             <Typography 
-              variant="caption" 
-              sx={{ fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1.2, mb: 2, display: 'block', color: 'text.primary' }}
+              variant="overline" 
+              sx={{ fontWeight: 700, display: 'block', mb: 2, color: 'text.primary', fontSize: '0.75rem' }}
             >
               Quick Links
             </Typography>
@@ -86,10 +81,9 @@ const Footer = () => {
                   underline="none"
                   sx={{ 
                     display: 'block', 
-                    mb: 1, 
+                    mb: 1.5, 
                     fontSize: '0.875rem',
-                    transition: '0.2s ease',
-                    '&:hover': { color: 'primary.main', pl: 0.5 }
+                    '&:hover': { color: 'primary.main' }
                   }}
                 >
                   {link.text}
@@ -98,34 +92,32 @@ const Footer = () => {
             </Box>
           </Grid>
 
-          {/* Social Presence */}
-          <Grid size={{ xs: 6, md: 4 }}>
+          {/* Соцмережі - 6/12 на мобільних, 4/12 на десктопі */}
+          <Grid item xs={6} md={4}>
             <Typography 
-              variant="caption" 
-              sx={{ fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1.2, mb: 2, display: 'block', color: 'text.primary' }}
+              variant="overline" 
+              sx={{ fontWeight: 700, display: 'block', mb: 2, color: 'text.primary', fontSize: '0.75rem' }}
             >
               Social Networks
             </Typography>
-            <Box sx={{ display: 'flex', gap: 1.5, flexWrap: 'wrap' }}>
+            <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
               {socialLinks.map((social) => (
                 <IconButton
                   key={social.label}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={social.label}
                   size="small"
                   sx={{
                     color: 'text.secondary',
                     border: '1px solid',
                     borderColor: 'divider',
-                    transition: 'all 0.3s ease',
                     '&:hover': { 
                       color: 'primary.main',
                       borderColor: 'primary.main',
-                      transform: 'translateY(-3px)', // Smooth lift effect
-                      backgroundColor: 'transparent'
-                    }
+                      transform: 'translateY(-2px)'
+                    },
+                    transition: 'all 0.2s'
                   }}
                 >
                   {social.icon}
@@ -135,20 +127,19 @@ const Footer = () => {
           </Grid>
         </Grid>
 
-        <Divider sx={{ mt: 4, mb: 2 }} />
+        <Divider sx={{ mt: 5, mb: 3 }} />
 
-        {/* Bottom Bar: Copyright & Version */}
         <Box sx={{ 
           display: 'flex', 
           flexDirection: { xs: 'column', sm: 'row' }, 
           justifyContent: 'space-between', 
           alignItems: 'center',
-          gap: 1
+          gap: 2
         }}>
-          <Typography variant="caption" color="text.secondary" sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
-            © {currentYear} Yurii Zvirianskyi. All rights reserved. • Built with ❤️ using MERN Stack
+          <Typography variant="caption" color="text.secondary">
+            © {currentYear} Yurii Zvirianskyi. Built with ❤️ using MERN
           </Typography>
-          <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 500 }}>
+          <Typography variant="caption" sx={{ opacity: 0.6 }}>
             v1.0.0
           </Typography>
         </Box>
