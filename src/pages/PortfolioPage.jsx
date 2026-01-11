@@ -19,7 +19,7 @@ import {
 } from '@mui/icons-material';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Image imports (ensure paths are correct for your project)
+// Image imports
 import ResponsiveImg from '../images/responsive.webp';
 import FullStackImg from '../images/full-stack.webp';
 import ReactLogoImg from '../images/react-logo.webp';
@@ -94,7 +94,9 @@ const PortfolioSection = () => {
       <Container maxWidth="lg">
         {/* Section Header */}
         <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography variant="h2" sx={{ fontWeight: 800, mb: 3 }}>Portfolio</Typography>
+          <Typography variant="h2" sx={{ fontWeight: 800, mb: 3, fontSize: { xs: '2.5rem', md: '3.75rem' } }}>
+            Portfolio
+          </Typography>
           <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 800, mx: 'auto', fontWeight: 400 }}>
             Explore my personal and educational projects. These works showcase my expertise 
             in frontend and full-stack development.
@@ -117,12 +119,15 @@ const PortfolioSection = () => {
           </Tabs>
         </Box>
 
-        {/* Gallery Grid */}
-        <Grid container spacing={4} alignItems="stretch">
+        {/* ВИПРАВЛЕНО: Додано container та spacing={4} */}
+        <Grid container spacing={4}>
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
               <Grid 
-                item xs={12} sm={6} md={4} 
+                item 
+                xs={12} 
+                sm={6} 
+                md={4} 
                 key={project.id}
                 layout
                 component={motion.div}
@@ -130,11 +135,11 @@ const PortfolioSection = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.4 }}
-                sx={{ display: 'flex' }} // Ensures all grid items have the same height
+                sx={{ display: 'flex' }}
               >
                 <Card sx={{ 
                   display: 'flex',
-                  flexDirection: 'column', // Stacks content vertically
+                  flexDirection: 'column',
                   width: '100%',
                   borderRadius: 4, 
                   position: 'relative',
@@ -149,7 +154,6 @@ const PortfolioSection = () => {
                   '&:hover .overlay': { opacity: 1 },
                   '&:hover img': { transform: 'scale(1.1)' }
                 }}>
-                  {/* Media Container with Fixed Aspect Ratio (4:3) */}
                   <Box sx={{ position: 'relative', overflow: 'hidden', pt: '75%' }}>
                     <CardMedia
                       component="img"
@@ -165,10 +169,9 @@ const PortfolioSection = () => {
                       }}
                     />
                     
-                    {/* Hover Overlay with Action Buttons */}
                     <Box className="overlay" sx={{
                       position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-                      bgcolor: 'rgba(15, 23, 42, 0.8)', // Modern dark slate overlay
+                      bgcolor: 'rgba(15, 23, 42, 0.85)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       opacity: 0, transition: '0.3s ease', gap: 2,
                       zIndex: 2,
@@ -178,7 +181,7 @@ const PortfolioSection = () => {
                         <IconButton 
                           href={project.githubLink} 
                           target="_blank" 
-                          sx={{ color: 'white', border: '1px solid rgba(255,255,255,0.4)', '&:hover': { bgcolor: 'primary.main' } }}
+                          sx={{ color: 'white', border: '1px solid rgba(255,255,255,0.4)', '&:hover': { bgcolor: 'primary.main', borderColor: 'primary.main' } }}
                         >
                           <GitHubIcon />
                         </IconButton>
@@ -187,7 +190,7 @@ const PortfolioSection = () => {
                         <IconButton 
                           href={project.demoLink} 
                           target="_blank" 
-                          sx={{ color: 'white', border: '1px solid rgba(255,255,255,0.4)', '&:hover': { bgcolor: 'primary.main' } }}
+                          sx={{ color: 'white', border: '1px solid rgba(255,255,255,0.4)', '&:hover': { bgcolor: 'primary.main', borderColor: 'primary.main' } }}
                         >
                           <DemoIcon />
                         </IconButton>
@@ -195,13 +198,12 @@ const PortfolioSection = () => {
                     </Box>
                   </Box>
 
-                  {/* Card Content Area - Grows to fill card height */}
                   <CardContent sx={{ 
                     textAlign: 'center', 
                     flexGrow: 1, 
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'space-between', // Keeps title at top and tech at bottom
+                    justifyContent: 'space-between',
                     p: 3
                   }}>
                     <Typography variant="h6" sx={{ fontWeight: 800, lineHeight: 1.2, mb: 2 }}>

@@ -1,16 +1,11 @@
 # General settings for all search engines
-# Allows all bots to crawl the entire site
 User-agent: *
 Allow: /
 
-# Block access to specific system folders or temporary files if they exist
-Disallow: /build/
-Disallow: /static/
 Disallow: /tmp/
+Disallow: /build/
 
-# Link to your sitemap to help Google find all your pages faster
-# Replace 'your-domain.com' with your actual domain after deployment
-Sitemap: https://your-domain.com/sitemap.xml
+Allow: /static/
 
-# Host directive for specific engines
-Host: https://your-domain.com
+# Замініть на свій реальний домен після деплою
+Sitemap: https://github.com/yurii0210/portfolio

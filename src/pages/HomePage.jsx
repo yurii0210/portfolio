@@ -20,10 +20,6 @@ import {
 import { motion } from 'framer-motion';
 import { fetchProjects } from '../redux/slices/projectsSlice';
 
-/**
- * HomePage Component
- * Features a high-impact Hero section with animated particles and dynamic typography.
- */
 const HomePage = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
@@ -35,7 +31,6 @@ const HomePage = () => {
     }
   }, [status, dispatch]);
 
-  // Animation Variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -55,7 +50,6 @@ const HomePage = () => {
 
   return (
     <Box component="main">
-      {/* Hero Section */}
       <Box
         sx={{
           position: 'relative',
@@ -63,7 +57,7 @@ const HomePage = () => {
           display: 'flex',
           alignItems: 'center',
           overflow: 'hidden',
-          // Decorative background gradients
+          py: { xs: 4, md: 0 }, // Додаємо відступи для мобільних
           '&::before': {
             content: '""',
             position: 'absolute',
@@ -76,7 +70,7 @@ const HomePage = () => {
           },
         }}
       >
-        {/* Animated Particles Layer */}
+        {/* Animated Particles */}
         <Box sx={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
           {[...Array(15)].map((_, i) => (
             <Box
@@ -108,9 +102,11 @@ const HomePage = () => {
         </Box>
 
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Grid container spacing={4} alignItems="center">
-            {/* Introduction Text */}
-            <Grid size={{ xs: 12, md: 7 }}>
+          {/* ВИПРАВЛЕНО: Збільшено spacing для візуального розподілу */}
+          <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center">
+            
+            {/* Текстовий блок: ВИПРАВЛЕНО size -> item */}
+            <Grid item xs={12} md={7} order={{ xs: 2, md: 1 }}>
               <motion.div variants={containerVariants} initial="hidden" animate="visible">
                 <motion.div variants={itemVariants}>
                   <Chip
@@ -130,7 +126,7 @@ const HomePage = () => {
                   <Typography 
                     variant="h1" 
                     sx={{ 
-                      fontSize: { xs: '3.2rem', md: '4.5rem' }, 
+                      fontSize: { xs: '2.8rem', sm: '3.5rem', md: '4.5rem' }, 
                       fontWeight: 900, 
                       lineHeight: 1.1, 
                       mb: 2 
@@ -149,7 +145,7 @@ const HomePage = () => {
                   <Typography 
                     variant="h5" 
                     color="text.secondary" 
-                    sx={{ mb: 5, maxWidth: 550, lineHeight: 1.6, fontWeight: 400 }}
+                    sx={{ mb: 5, maxWidth: 550, lineHeight: 1.6, fontWeight: 400, fontSize: { xs: '1.1rem', md: '1.5rem' } }}
                   >
                     Crafting <Box component="span" sx={{ color: 'text.primary', fontWeight: 600 }}>responsive and scalable</Box> web solutions with React, Node.js, and a passion for clean code.
                   </Typography>
@@ -163,7 +159,7 @@ const HomePage = () => {
                       component={RouterLink} 
                       to="/portfolio" 
                       endIcon={<RocketIcon />}
-                      sx={{ px: 4, py: 1.5, borderRadius: '12px', fontWeight: 700 }}
+                      sx={{ px: 4, py: 1.5, borderRadius: '12px', fontWeight: 700, textTransform: 'none' }}
                     >
                       View Projects
                     </Button>
@@ -172,7 +168,7 @@ const HomePage = () => {
                       size="large" 
                       component={RouterLink} 
                       to="/contact"
-                      sx={{ px: 4, py: 1.5, borderRadius: '12px', fontWeight: 700 }}
+                      sx={{ px: 4, py: 1.5, borderRadius: '12px', fontWeight: 700, textTransform: 'none' }}
                     >
                       Contact Me
                     </Button>
@@ -181,15 +177,14 @@ const HomePage = () => {
               </motion.div>
             </Grid>
 
-            {/* Profile Image Section */}
-            <Grid size={{ xs: 12, md: 5 }}>
+            {/* Блок з фото: ВИПРАВЛЕНО size -> item */}
+            <Grid item xs={12} md={5} order={{ xs: 1, md: 2 }}>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, ease: "easeOut" }}
               >
                 <Box sx={{ position: 'relative', width: 'fit-content', mx: 'auto' }}>
-                  {/* Decorative Glow */}
                   <Box
                     component={motion.div}
                     animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
@@ -201,13 +196,12 @@ const HomePage = () => {
                     }}
                   />
                   
-                  {/* Main Profile Photo */}
                   <Avatar
                     src={profilePic}
                     alt="Yurii Zvirianskyi"
                     sx={{
-                      width: { xs: 280, md: 380 },
-                      height: { xs: 280, md: 380 },
+                      width: { xs: 240, sm: 300, md: 380 },
+                      height: { xs: 240, sm: 300, md: 380 },
                       border: '6px solid',
                       borderColor: 'background.paper',
                       boxShadow: theme.shadows[10],
@@ -218,6 +212,7 @@ const HomePage = () => {
                 </Box>
               </motion.div>
             </Grid>
+
           </Grid>
         </Container>
       </Box>

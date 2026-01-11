@@ -23,6 +23,7 @@ import { motion } from 'framer-motion';
 
 const ServicesSection = () => {
   const theme = useTheme();
+  const navigate = useNavigate(); 
 
   const services = [
     {
@@ -62,24 +63,15 @@ const ServicesSection = () => {
     },
   ];
 
-  const navigate = useNavigate(); 
-
-const handleContactClick = () => {
-  navigate('/contact'); 
-  window.scrollTo(0, 0); 
-};
-
-  const handleScrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleContactClick = () => {
+    navigate('/contact'); 
+    window.scrollTo(0, 0); 
   };
 
   return (
     <Box component="section" id="services" sx={{ py: { xs: 8, md: 12 }, bgcolor: 'background.paper' }}>
       <Container maxWidth="lg">
-        {/* Services */}
+        {/* Header */}
         <Box sx={{ textAlign: 'center', mb: 8 }}>
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -87,10 +79,10 @@ const handleContactClick = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <Typography variant="overline" color="primary" sx={{ fontWeight: 800, letterSpacing: 2, fontSize: '1.5rem' }}> 
+            <Typography variant="overline" color="primary" sx={{ fontWeight: 800, letterSpacing: 2, fontSize: '0.9rem', display: 'block', mb: 1 }}> 
               What I Can Do
             </Typography>
-            <Typography variant="h2" sx={{ fontWeight: 900, mb: 2, mt: 1 }}>
+            <Typography variant="h2" sx={{ fontWeight: 900, mb: 2, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
               Services
             </Typography>
             <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 700, mx: 'auto', fontWeight: 400 }}>
@@ -99,64 +91,65 @@ const handleContactClick = () => {
           </motion.div>
         </Box>
 
-       {/* Services Grid */}
-<Grid container spacing={4} justifyContent="center">
-  {services.map((service, index) => (
-    <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index} sx={{ display: 'flex' }}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: index * 0.1 }}
-        style={{ display: 'flex', width: '100%' }} // Додаємо flex, щоб motion.div розтягувався
-      >
-        <Paper
-          elevation={0}
-          sx={{
-            p: 4,
-            display: 'flex',           // Робимо Paper флекс-контейнером
-            flexDirection: 'column',   // Напрямок - колонка
-            width: '100%',             // Важливо для вирівнювання
-            borderRadius: 4,
-            border: '1px solid',
-            borderColor: 'divider',
-            transition: '0.3s',
-            '&:hover': {
-              borderColor: 'primary.main',
-              bgcolor: 'action.hover',
-              transform: 'translateY(-8px)',
-              '& .icon-circle': { bgcolor: 'primary.main', color: 'white' }
-            },
-          }}
-        >
-          <Box
-            className="icon-circle"
-            sx={{
-              display: 'inline-flex',
-              alignSelf: 'flex-start', // Щоб іконка не розтягувалася на всю ширину
-              p: 2,
-              borderRadius: '50%',
-              bgcolor: 'primary.light',
-              color: 'primary.main',
-              mb: 3,
-              transition: '0.3s'
-            }}
-          >
-            {service.icon}
-          </Box>
-          <Typography variant="h5" sx={{ fontWeight: 800, mb: 2 }}>
-            {service.title}
-          </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7, flexGrow: 1 }}>
-            {service.description}
-          </Typography>
-        </Paper>
-      </motion.div>
-    </Grid>
-  ))}
-</Grid>
+        {/* Services Grid: ВИПРАВЛЕНО size -> item */}
+        <Grid container spacing={4} justifyContent="center">
+          {services.map((service, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex' }}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                style={{ display: 'flex', width: '100%' }}
+              >
+                <Paper
+                  elevation={0}
+                  sx={{
+                    p: 4,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: '100%',
+                    borderRadius: 4,
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    transition: 'all 0.3s ease-in-out',
+                    '&:hover': {
+                      borderColor: 'primary.main',
+                      bgcolor: 'background.default',
+                      transform: 'translateY(-8px)',
+                      boxShadow: '0 12px 30px rgba(0,0,0,0.06)',
+                      '& .icon-circle': { bgcolor: 'primary.main', color: 'white' }
+                    },
+                  }}
+                >
+                  <Box
+                    className="icon-circle"
+                    sx={{
+                      display: 'inline-flex',
+                      alignSelf: 'flex-start',
+                      p: 2,
+                      borderRadius: 3, // Більш сучасний вигляд (квадрат із закругленням)
+                      bgcolor: `${theme.palette.primary.main}15`, // Прозорий колір основної теми
+                      color: 'primary.main',
+                      mb: 3,
+                      transition: '0.3s'
+                    }}
+                  >
+                    {service.icon}
+                  </Box>
+                  <Typography variant="h5" sx={{ fontWeight: 800, mb: 2 }}>
+                    {service.title}
+                  </Typography>
+                  <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7, flexGrow: 1 }}>
+                    {service.description}
+                  </Typography>
+                </Paper>
+              </motion.div>
+            </Grid>
+          ))}
+        </Grid>
 
-        {/* button*/}
+        {/* Call to Action Button */}
         <Box sx={{ mt: 10, textAlign: 'center' }}>
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -175,9 +168,6 @@ const handleContactClick = () => {
                 fontWeight: 700,
                 textTransform: 'none',
                 boxShadow: theme.shadows[10],
-                '&:hover': {
-                  boxShadow: theme.shadows[15],
-                }
               }}
             >
               Start a Project Together
