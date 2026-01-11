@@ -65,7 +65,7 @@ const ContactPage = () => {
   const contactInfo = [
     { icon: <EmailIcon fontSize="small" />, title: 'Email', value: 'uriy0201@gmail.com', link: 'mailto:uriy0201@gmail.com' },
     { icon: <PhoneIcon fontSize="small" />, title: 'Phone', value: '+420 608-499-682', link: 'tel:+420608499682' },
-    { icon: <LocationIcon fontSize="small" />, title: 'Location', value: 'Tabor, Czech Republic', link: '#' },
+    { icon: <LocationIcon fontSize="small" />, title: 'Location', value: 'Tabor, Czech Republic', link: 'https://maps.app.goo.gl/nkAJi6b5oNyfSMGp9' },
   ];
 
   const socialLinks = [
@@ -94,10 +94,8 @@ const ContactPage = () => {
           </Typography>
         </Box>
 
-        {/* ВИПРАВЛЕНО: Додано container та spacing */}
         <Grid container spacing={5}>
           
-          {/* Форма: ВИПРАВЛЕНО size -> item xs/md */}
           <Grid item xs={12} md={7}>
             <Paper 
               elevation={0} 
@@ -183,7 +181,6 @@ const ContactPage = () => {
             </Paper>
           </Grid>
 
-          {/* Інфо: ВИПРАВЛЕНО size -> item xs/md */}
           <Grid item xs={12} md={5}>
             <Box sx={{ pl: { md: 2 } }}>
               <Typography variant="h5" sx={{ fontWeight: 700, mb: 3 }}>Contact Details</Typography>
