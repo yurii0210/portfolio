@@ -1,0 +1,15 @@
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Ігноруємо секрети
+.env
+server/.env
+
+# Ігноруємо білд фронтенду
+client/build/
+dist/
+
+# Тимчасові файли систем
+.DS_Store
+Thumbs.db

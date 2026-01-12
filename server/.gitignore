@@ -1,5 +1,5 @@
-# Dependencies: exclude installed packages and plug-and-play files
-/node_modules
+# Dependencies: exclude installed packages and plug-and-play fil
+node_modules/
 /.pnp
 .pnp.js
 
