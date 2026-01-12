@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { api } from '../../api/axiosConfig';
+import { api } from '../../api/config';
 import axios from 'axios';
 
 export const fetchSkills = createAsyncThunk(

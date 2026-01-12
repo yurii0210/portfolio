@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // Importing the centralized API configuration
-import { api } from '../../api/axiosConfig'; 
+import { api } from '../../api/config'; 
 
 /**
  * Async thunk to fetch portfolio projects from the backend.
