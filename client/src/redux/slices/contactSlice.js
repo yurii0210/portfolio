@@ -1,13 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-/**
- * API base URL
- * - DEV  -> http://localhost:5000
- * - PROD -> https://your-backend.onrender.com
- */
-const API_URL = process.env.REACT_APP_API_URL;
-
+import { api } from '../../api/axiosConfig'; 
 
 /**
  * Async thunk to send contact form data
@@ -16,15 +8,7 @@ export const sendContactMessage = createAsyncThunk(
   'contact/sendMessage',
   async (messageData, { rejectWithValue }) => {
     try {
-      const response = await axios.post(
-        `${API_URL}/api/contact`,
-        messageData,
-        {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }
-      );
+      const response = await api.post('/contact', messageData);
 
       return response.data;
     } catch (error) {
@@ -35,10 +19,10 @@ export const sendContactMessage = createAsyncThunk(
       }
 
       if (error.request) {
-        return rejectWithValue('Server is not responding');
+        return rejectWithValue('Server is not responding. Please wait a minute and try again.');
       }
 
-      return rejectWithValue('Unexpected error');
+      return rejectWithValue('Unexpected error occurred');
     }
   }
 );
@@ -67,7 +51,7 @@ const contactSlice = createSlice({
       .addCase(sendContactMessage.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.successMessage =
-          action.payload?.message || 'Message sent successfully';
+          action.payload?.message || 'Message sent successfully!';
       })
       .addCase(sendContactMessage.rejected, (state, action) => {
         state.status = 'failed';

@@ -1,20 +1,25 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { api } from '../path-to-your-api-file';
-import axios from 'axios';
+// Importing the centralized API configuration
+import { api } from '../../api/axiosConfig'; 
 
 /**
- * Async thunk to fetch projects from the backend API.
- * Uses rejectWithValue for better error handling.
+ * Async thunk to fetch portfolio projects from the backend.
+ * Uses the pre-configured axios instance 'api'.
+ * @returns {Promise} Array of projects or rejects with an error message.
  */
 export const fetchProjects = createAsyncThunk(
   'projects/fetchProjects',
   async (_, { rejectWithValue }) => {
     try {
+      // The baseURL in axiosConfig already includes '/api', 
+      // so we only need to call the '/projects' endpoint.
       const response = await api.get('/projects');
       return response.data;
     } catch (error) {
-      // Return custom error message from server or default axios error
-      return rejectWithValue(error.response?.data?.message || 'Failed to fetch projects');
+      // Return a custom error message from the server or a default one
+      return rejectWithValue(
+        error.response?.data?.message || 'Failed to fetch projects from server'
+      );
     }
   }
 );
@@ -27,24 +32,32 @@ const projectsSlice = createSlice({
     error: null
   },
   reducers: {
-    // You can add synchronous reducers here if needed (e.g., clearProjects)
+    // Synchronous reducers can be added here (e.g., clearProjects)
   },
   extraReducers: (builder) => {
     builder
-      /* Triggered when the request starts */
+      /**
+       * Triggered when fetchProjects is initiated.
+       * Sets the status to 'loading' and clears previous errors.
+       */
       .addCase(fetchProjects.pending, (state) => {
         state.status = 'loading';
         state.error = null;
       })
-      /* Triggered when the data is successfully fetched */
+      /**
+       * Triggered when data is successfully received from the server.
+       * Stores the projects in the 'items' array.
+       */
       .addCase(fetchProjects.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.items = action.payload;
       })
-      /* Triggered if the request fails */
+      /**
+       * Triggered if the API call fails.
+       * Updates the status to 'failed' and stores the error message.
+       */
       .addCase(fetchProjects.rejected, (state, action) => {
         state.status = 'failed';
-        // Use the custom error message from rejectWithValue
         state.error = action.payload || action.error.message;
       });
   }
