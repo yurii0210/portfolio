@@ -1,0 +1,11 @@
+# General settings for all search engines
+User-agent: *
+Allow: /
+
+Disallow: /tmp/
+Disallow: /build/
+
+Allow: /static/
+
+# Замініть на свій реальний домен після деплою
+Sitemap: https://github.com/yurii0210/portfolio

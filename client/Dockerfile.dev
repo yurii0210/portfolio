@@ -1,0 +1,24 @@
+# Use the lightweight Alpine version of Node.js 18
+FROM node:18-alpine
+
+# Install necessary system utilities (bash is useful for debugging containers)
+RUN apk add --no-cache bash
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy package management files first to leverage Docker layer caching
+# Dependencies will only be re-installed if these files change
+COPY package*.json ./
+
+# Install project dependencies
+RUN npm install
+
+# Copy the rest of the application source code
+COPY . .
+
+# Expose the default React development port
+EXPOSE 3000
+
+# Start the application in development mode
+CMD ["npm", "start"]

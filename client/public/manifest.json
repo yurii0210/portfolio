@@ -1,0 +1,28 @@
+{
+  "short_name": "YZ Portfolio",
+  "name": "Yurii Zvirianskyi | Full-stack Developer Portfolio",
+  "icons": [
+    {
+      "src": "favicon.webp",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/webp" 
+    },
+    {
+      "src": "favicon.webp",
+      "type": "image/webp",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon.webp",
+      "type": "image/webp",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1976d2",
+  "background_color": "#ffffff",
+  "orientation": "portrait",
+  "description": "Professional portfolio of Yurii Zvirianskyi featuring web development projects and skills."
+}
