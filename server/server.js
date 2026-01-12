@@ -11,26 +11,47 @@ const fs = require('fs');
 const app = express();
 
 // --- MIDDLEWARE CONFIGURATION ---
-app.use(cors()); // Enable Cross-Origin Resource Sharing
-app.use(express.json()); // Parse incoming JSON requests
-// Serve static files from the 'uploads' directory
+/**
+ * CORS configuration to allow requests from your GitHub Pages frontend.
+ * This prevents "Cross-Origin Request Blocked" errors in production.
+ */
+app.use(cors({
+    origin: ['https://yurii0210.github.io', 'http://localhost:3000'],
+    methods: ['GET', 'POST'],
+    credentials: true
+}));
+
+app.use(express.json()); // Middleware to parse JSON bodies
+
+/**
+ * Serve uploaded files statically. 
+ * Allows access to images via http://your-server.com/uploads/filename.jpg
+ */
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // --- UPLOADS FOLDER INITIALIZATION ---
-// Ensure the uploads directory exists to prevent errors during file saving
+/**
+ * Ensure the 'uploads' directory exists on the server to prevent errors
+ * when users upload project images.
+ */
 const uploadsDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadsDir)) {
     fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
 // --- MONGODB CONNECTION ---
+/**
+ * Connect to MongoDB Atlas using the URI stored in environment variables.
+ */
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('✅ Connected to MongoDB'))
     .catch(err => console.error('❌ MongoDB connection error:', err));
 
 // --- DATABASE SCHEMAS & MODELS ---
 
-// Project Schema: For portfolio items
+/**
+ * Project Schema for portfolio items.
+ */
 const projectSchema = new mongoose.Schema({
     title: { type: String, required: true },
     description: { type: String, required: true },
@@ -43,16 +64,20 @@ const projectSchema = new mongoose.Schema({
 });
 const Project = mongoose.model('Project', projectSchema);
 
-// Skill Schema: For technical expertise visualization
+/**
+ * Skill Schema for technical expertise visualization.
+ */
 const skillSchema = new mongoose.Schema({
     name: { type: String, required: true },
     level: { type: Number, min: 0, max: 100 },
-    category: String, // e.g., 'Frontend', 'Backend', 'Tools'
-    icon: String      // Name of the icon or icon URL
+    category: String,
+    icon: String 
 });
 const Skill = mongoose.model('Skill', skillSchema);
 
-// Contact Schema: To store inquiries from the contact form
+/**
+ * Contact Schema to store messages from the website.
+ */
 const contactSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true },
@@ -61,40 +86,53 @@ const contactSchema = new mongoose.Schema({
 });
 const Contact = mongoose.model('Contact', contactSchema);
 
-
-
 // --- NODEMAILER (EMAIL PROVIDER) CONFIGURATION ---
+/**
+ * Transporter setup for sending emails via Gmail.
+ * Using port 587 and STARTTLS for better compatibility with cloud hosting like Render.
+ */
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
-    port: 465,
-    secure: true, // Use SSL/TLS
+    port: 587,
+    secure: false, // Must be false for port 587
     auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS, // Use App Password for Gmail
+        pass: process.env.EMAIL_PASS, // 16-character App Password
     },
-    tls: { rejectUnauthorized: false }
+    tls: {
+        // Essential for avoiding connection timeouts on some networks
+        rejectUnauthorized: false,
+        minVersion: 'TLSv1.2'
+    }
 });
 
-// Verify SMTP connection settings on startup
-transporter.verify((err) => {
-    if (err) console.error('❌ Email provider error:', err);
-    else console.log('📧 Email server is ready');
+/**
+ * Verify the SMTP connection settings on server startup.
+ * This will log success or specific error details to the Render console.
+ */
+transporter.verify((err, success) => {
+    if (err) {
+        console.error('❌ Email provider error (Connection failed):', err);
+    } else {
+        console.log('📧 Email server is ready to send messages');
+    }
 });
 
 // --- MULTER (FILE UPLOAD) CONFIGURATION ---
+/**
+ * Storage configuration for Multer to handle image uploads.
+ */
 const storage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, uploadsDir),
     filename: (req, file, cb) => {
-        // Generate unique filename using timestamp and random suffix
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
         cb(null, uniqueSuffix + path.extname(file.originalname));
     }
 });
 
-// Limit uploads to images only and max size of 5MB
 const upload = multer({
     storage,
-    limits: { fileSize: 5 * 1024 * 1024 },
+    limits: { fileSize: 5 * 1024 * 1024 }, // Max 5MB
     fileFilter: (req, file, cb) => {
         const allowedTypes = /jpeg|jpg|png|gif/;
         const ext = path.extname(file.originalname).toLowerCase();
@@ -107,7 +145,7 @@ const upload = multer({
 
 /**
  * @route   POST /api/contact
- * @desc    Save contact inquiry to DB and send notification email
+ * @desc    Save inquiry to DB and send notification email.
  */
 app.post('/api/contact', async (req, res) => {
     try {
@@ -116,9 +154,11 @@ app.post('/api/contact', async (req, res) => {
             return res.status(400).json({ success: false, error: 'All fields are required' });
         }
 
+        // Save the message to MongoDB
         const newContact = new Contact({ name, email, message });
         await newContact.save();
 
+        // Prepare email content
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: process.env.EMAIL_USER,
@@ -127,56 +167,50 @@ app.post('/api/contact', async (req, res) => {
             text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
         };
 
+        // Send the email
         await transporter.sendMail(mailOptions);
 
         res.status(201).json({ success: true, message: 'Message sent successfully!' });
     } catch (error) {
-        console.error('❌ Contact error:', error);
-        res.status(500).json({ success: false, error: 'Server error, try again later.' });
+        console.error('❌ Detailed Contact error:', error);
+        res.status(500).json({ 
+            success: false, 
+            error: 'Server error', 
+            details: error.message 
+        });
     }
 });
 
 /**
  * @route   GET /api/projects
- * @desc    Get all projects sorted by newest first
+ * @desc    Fetch all projects sorted by date.
  */
 app.get('/api/projects', async (req, res) => {
     try {
         const projects = await Project.find().sort({ createdAt: -1 });
         res.json(projects);
     } catch (error) {
-        console.error('❌ Projects error:', error);
-        res.status(500).json({ error: 'Server error fetching projects' });
+        console.error('❌ Projects fetch error:', error);
+        res.status(500).json({ error: error.message });
     }
 });
 
 /**
  * @route   GET /api/skills
- * @desc    Get all skills
+ * @desc    Fetch all skills for the skills section.
  */
 app.get('/api/skills', async (req, res) => {
     try {
         const skills = await Skill.find();
         res.json(skills);
     } catch (error) {
-        console.error('❌ Skills error:', error);
-        res.status(500).json({ error: 'Server error fetching skills' });
+        console.error('❌ Skills fetch error:', error);
+        res.status(500).json({ error: error.message });
     }
 });
-
-/**
- * @route   POST /api/upload
- * @desc    Upload an image for a project
- */
-app.post('/api/upload', upload.single('image'), (req, res) => {
-    if (!req.file) return res.status(400).json({ success: false, error: 'No file uploaded' });
-    res.json({ success: true, url: `/uploads/${req.file.filename}` });
-});
-
-
 
 // --- SERVER INITIALIZATION ---
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`🚀 Server running on port ${PORT}`);
 });
