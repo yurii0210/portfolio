@@ -1,50 +1,41 @@
-version: '3.8' # Docker Compose file format version
-
 services:
-  # Backend API service (Node.js/Express)
   backend:
     build: 
       context: ./server
       dockerfile: Dockerfile.dev
     container_name: portfolio-backend-dev
     ports:
-      - "5000:5000" # API Port
-      - "9229:9229" # Node.js debugger port (optional)
-    environment:
-      - NODE_ENV=development
-      - PORT=5000
-      - MONGODB_URI=mongodb+srv://uriy0210:Madeta2025_@cluster0.etb7pyd.mongodb.net/portfolio?retryWrites=true&w=majority
+      - "5000:5000"
+      - "9229:9229"
     env_file:
-      - .env # Load variables from local .env file
+      - .env
     volumes:
-      - ./server:/app # Sync local source code with container
-      - /app/node_modules # Anonymous volume to prevent overwriting container's node_modules
+      - ./server:/app
+      - /app/node_modules
     networks:
       - portfolio-network
     command: npm run dev
 
-  # Frontend service (React)
   frontend:
     build:
       context: ./client
       dockerfile: Dockerfile.dev
     container_name: portfolio-frontend-dev
     ports:
-      - "3000:3000" # React Dev Server Port
+      - "3000:3000"
     environment:
-      - REACT_APP_API_URL=http://backend:5000 # Using service name as hostname
-      - CHOKIDAR_USEPOLLING=true # Required for hot-reload in some Docker environments (Windows/WSL)
+      - REACT_APP_API_URL=http://backend:5000
+      - CHOKIDAR_USEPOLLING=true
       - WATCHPACK_POLLING=true
     volumes:
-      - ./client:/app # Sync local source code
-      - /app/node_modules # Anonymous volume to protect container's node_modules
+      - ./client:/app
+      - /app/node_modules
     depends_on:
-      - backend # Ensures backend starts before frontend
+      - backend
     networks:
       - portfolio-network
     command: npm start
 
-# Internal network for service discovery
 networks:
   portfolio-network:
     driver: bridge

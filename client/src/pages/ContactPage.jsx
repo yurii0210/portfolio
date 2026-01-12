@@ -67,7 +67,7 @@ const ContactPage = () => {
   };
 
   const contactInfo = [
-    { icon: <EmailIcon fontSize="small" />, title: 'Email', value: 'uriy0201@gmail.com', link: 'mailto:uriy0201@gmail.com' },
+    { icon: <EmailIcon fontSize="small" />, title: 'Email', value: 'uriy02010ck@gmail.com', link: 'mailto:uriy02010ck@gmail.com' },
     { icon: <PhoneIcon fontSize="small" />, title: 'Phone', value: '+420 608-499-682', link: 'tel:+420608499682' },
     { icon: <LocationIcon fontSize="small" />, title: 'Location', value: 'Tabor, Czech Republic', link: 'https://maps.app.goo.gl/nkAJi6b5oNyfSMGp9' },
   ];

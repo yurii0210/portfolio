@@ -83,7 +83,8 @@ const Footer = () => {
                     display: 'block', 
                     mb: 1.5, 
                     fontSize: '0.875rem',
-                    '&:hover': { color: 'primary.main' }
+                    transition: 'all 0.25s ease',
+                    '&:hover': { color: 'primary.main', transform: 'translateX(6px)' }
                   }}
                 >
                   {link.text}
@@ -137,7 +138,7 @@ const Footer = () => {
           gap: 2
         }}>
           <Typography variant="caption" color="text.secondary">
-            © {currentYear} Yurii Zvirianskyi. Built with ❤️ using MERN
+            © {currentYear} Yurii Zvirianskyi.All rights reserved. Built with ❤️ using MERN
           </Typography>
           <Typography variant="caption" sx={{ opacity: 0.6 }}>
             v1.0.0
