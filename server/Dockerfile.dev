@@ -1,0 +1,24 @@
+# Use Node.js 20 on Alpine Linux for a small and secure image footprint
+FROM node:20-alpine
+
+# Set the working directory for all subsequent instructions
+WORKDIR /app
+
+# Copy dependency manifests first
+# package-lock.json ensures consistent dependency versions across environments
+COPY package.json package-lock.json ./
+
+# Install dependencies
+# --legacy-peer-deps is used to bypass potential peer dependency conflicts 
+# common in modern npm versions when using specific library combinations
+RUN npm install --legacy-peer-deps
+
+# Copy the entire backend source code into the container
+COPY . .
+
+# Expose the port your Express server is listening on (default 5000)
+EXPOSE 5000
+
+# Start the application in development mode
+# This typically triggers 'nodemon' or similar for hot-reloading
+CMD ["npm", "run", "dev"]

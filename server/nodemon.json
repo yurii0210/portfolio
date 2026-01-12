@@ -1,0 +1,18 @@
+{
+  "watch": ["."],
+  "ext": "js,json,mjs",
+  "ignore": [
+    "node_modules",
+    ".git",
+    "uploads/*",
+    "*.log"
+  ],
+  "exec": "node server.js",
+  "restartable": "rs",
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "events": {
+    "restart": "echo '🔄 Сервер перезавантажено!'"
+  }
+}
