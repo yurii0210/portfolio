@@ -92,7 +92,7 @@ const Contact = mongoose.model('Contact', contactSchema);
  * Using port 587 and STARTTLS for better compatibility with cloud hosting like Render.
  */
 const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
+    host: '74.125.131.108',
     port: 587,
     secure: false, // Must be false for port 587
     auth: {
