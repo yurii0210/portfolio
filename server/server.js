@@ -74,7 +74,7 @@ app.post('/api/contact', async (req, res) => {
         console.log('📝 Message saved to Database');
 
         // 3. Prepare Brevo API call
-        const apiKey = String(process.env.BREVO_API_KEY || '').trim();
+        const apiKey = xsmtpsib-d0260d716eeb5d376db07755ec05eb96c7533158aaa07fc1649be3a15e5a99d0-IUTKe21mKNE6ch4s;
         const senderEmail = String(process.env.EMAIL_USER || '').trim();
 
         // Debug info (only existence, not the key itself)
