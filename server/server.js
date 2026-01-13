@@ -29,6 +29,14 @@ mongoose.connect(process.env.MONGODB_URI)
     .catch(err => console.error('❌ MongoDB connection error:', err));
 
 // --- СХЕМИ ТА МОДЕЛІ ---
+const contactSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    message: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now }
+});
+const Contact = mongoose.model('Contact', contactSchema);
+
 const projectSchema = new mongoose.Schema({
     title: { type: String, required: true },
     description: { type: String, required: true },
@@ -49,28 +57,22 @@ const skillSchema = new mongoose.Schema({
 });
 const Skill = mongoose.model('Skill', skillSchema);
 
-const contactSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true },
-    message: { type: String, required: true },
-    createdAt: { type: Date, default: Date.now }
-});
-const Contact = mongoose.model('Contact', contactSchema);
-
-// --- НАЛАШТУВАННЯ ПОШТИ (App Password) ---
+// --- НАЛАШТУВАННЯ ПОШТИ (Secure SMTP Port 465) ---
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true, // Використовуємо SSL
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_APP_PASS 
+    },
+    tls: {
+        rejectUnauthorized: false 
     }
 });
 
 // --- API МАРШРУТИ ---
 
-/**
- * @route   POST /api/contact
- */
 app.post('/api/contact', async (req, res) => {
     try {
         const { name, email, message } = req.body;
@@ -92,8 +94,8 @@ app.post('/api/contact', async (req, res) => {
         };
 
         await transporter.sendMail(mailOptions);
-
         res.status(201).json({ success: true, message: 'Message sent successfully!' });
+
     } catch (error) {
         console.error('❌ Detailed Contact error:', error);
         res.status(500).json({ 
