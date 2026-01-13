@@ -52,7 +52,7 @@ const FullStackSkills = () => {
       skills: [
         { name: 'React.js / Redux', value: 70 },
         { name: 'JavaScript (ES6+)', value: 80 },
-        { name: 'HTML5 / CSS3 / SASS', value: 100 },
+        { name: 'HTML5 / CSS3 / SASS', value: 90 },
         { name: 'MUI / Tailwind CSS', value: 90 },
       ]
     },
@@ -73,7 +73,7 @@ const FullStackSkills = () => {
         { name: 'Git / GitHub', value: 85 },
         { name: 'Docker / CI/CD', value: 70 },
         { name: 'Postman / Insomnia', value: 90 },
-        { name: 'Firebase / Vercel', value: 80 },
+        { name: 'Render / Vercel', value: 80 },
       ]
     }
   ];
@@ -157,11 +157,11 @@ const FullStackSkills = () => {
                   {/* Додаткові теги для візуального наповнення */}
                   <Box sx={{ mt: 2, display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                     {group.title.includes('Backend') ? (
-                      ['JWT', 'Bcrypt', 'OAuth'].map(tag => (
+                      ['JWT', 'Brevo', 'OAuth'].map(tag => (
                         <Chip key={tag} label={tag} size="small" variant="outlined" sx={{ fontSize: '0.7rem' }} />
                       ))
                     ) : group.title.includes('Frontend') ? (
-                      ['Zustand', 'Context API'].map(tag => (
+                      ['Context API'].map(tag => (
                         <Chip key={tag} label={tag} size="small" variant="outlined" sx={{ fontSize: '0.7rem' }} />
                       ))
                     ) : null}
