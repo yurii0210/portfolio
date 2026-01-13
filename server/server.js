@@ -73,16 +73,15 @@ app.post('/api/contact', async (req, res) => {
         await newContact.save();
         console.log('📝 Message saved to Database');
 
-        // 3. Prepare Brevo API call
-        const apiKey = xsmtpsib-d0260d716eeb5d376db07755ec05eb96c7533158aaa07fc1649be3a15e5a99d0-IUTKe21mKNE6ch4s;
-        const senderEmail = String(process.env.EMAIL_USER || '').trim();
+       // 3. Prepare Brevo API call
+        const apiKey = process.env.BREVO_API_KEY ? String(process.env.BREVO_API_KEY).trim() : null;
+        const senderEmail = process.env.EMAIL_USER ? String(process.env.EMAIL_USER).trim() : null;
 
-        // Debug info (only existence, not the key itself)
-        console.log('🛠 Debug: API Key length:', apiKey.length);
-        console.log('🛠 Debug: Sender Email:', senderEmail);
+        console.log('🛠 Debug: API Key exists:', !!apiKey);
+        console.log('🛠 Debug: Sender Email used:', senderEmail);
 
-        if (!apiKey) {
-            throw new Error('BREVO_API_KEY is missing in environment variables');
+        if (!apiKey || apiKey === 'undefined') {
+            throw new Error('API Key is undefined or missing in Render settings');
         }
 
         // 4. Send Email via Brevo HTTP API
