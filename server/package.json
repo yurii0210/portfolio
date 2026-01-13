@@ -9,6 +9,7 @@
     "debug": "nodemon --inspect=0.0.0.0:9229 server.js"
   },
   "dependencies": {
+    "axios": "^1.13.2",
     "cors": "^2.8.5",
     "dotenv": "^16.6.1",
     "express": "^4.22.1",
