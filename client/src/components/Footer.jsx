@@ -47,10 +47,10 @@ const Footer = () => {
       }}
     >
       <Container maxWidth="lg">
-        {/* Головний контейнер Grid */}
+        {/* Main Grid */}
         <Grid container spacing={4}>
           
-          {/* Брендинг - займає повну ширину на мобільних, 5/12 на десктопі */}
+          {/* Branding - 5/12 desktop */}
           <Grid item xs={12} md={5}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <CodeIcon sx={{ mr: 1, color: 'primary.main', fontSize: 24 }} />
