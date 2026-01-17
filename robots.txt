@@ -7,5 +7,5 @@ Disallow: /build/
 
 Allow: /static/
 
-# Замініть на свій реальний домен після деплою
-Sitemap: https://github.com/yurii0210/portfolio
+# Sitemap з правильним URL на GitHub Pages
+Sitemap: https://yurii0210.github.io/portfolio/sitemap.xml
