@@ -10,6 +10,7 @@ import {
   Divider,
 } from '@mui/material';
 import {
+  AssignmentInd as ResumeIcon,
   GitHub as GitHubIcon,
   LinkedIn as LinkedInIcon,
   Telegram as TelegramIcon,
@@ -24,6 +25,7 @@ const Footer = () => {
     { text: 'Home', path: '/' },
     { text: 'Portfolio', path: '/portfolio' },
     { text: 'Skills', path: '/skills' },
+    { text: 'Resume', path: '/resume' },
     { text: 'Services', path: '/services' },
     { text: 'Contact', path: '/contact' },
   ];
@@ -63,7 +65,7 @@ const Footer = () => {
             </Typography>
           </Grid>
 
-          {/* Навігація - 6/12 (половина) на мобільних, 3/12 на десктопі */}
+          {/* Navigation - 6/12 mobile, 3/12 desktop */}
           <Grid item xs={6} md={3}>
             <Typography 
               variant="overline" 
@@ -93,7 +95,7 @@ const Footer = () => {
             </Box>
           </Grid>
 
-          {/* Соцмережі - 6/12 на мобільних, 4/12 на десктопі */}
+          {/* Social Networks - 6/12 mobile, 4/12 decstop */}
           <Grid item xs={6} md={4}>
             <Typography 
               variant="overline" 
@@ -141,7 +143,7 @@ const Footer = () => {
             © {currentYear} Yurii Zvirianskyi.All rights reserved. Built with ❤️ using MERN
           </Typography>
           <Typography variant="caption" sx={{ opacity: 0.6 }}>
-            v1.0.0
+            v1.0.1
           </Typography>
         </Box>
       </Container>

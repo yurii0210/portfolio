@@ -18,13 +18,13 @@ import {
   Divider,
 } from '@mui/material';
 import {
+  AssignmentInd as ResumeIcon,
   Menu as MenuIcon,
   Home as HomeIcon,
   Work as WorkIcon,
   Build as BuildIcon,
   ContactMail as ContactIcon,
   Code as CodeIcon,
-  Close as CloseIcon,
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 
@@ -43,6 +43,7 @@ const Navbar = () => {
     { text: 'Home', path: '/', icon: <HomeIcon /> },
     { text: 'Portfolio', path: '/portfolio', icon: <WorkIcon /> },
     { text: 'Skills', path: '/skills', icon: <BuildIcon /> },
+    { text: 'Resume', path: '/resume', icon: <ResumeIcon /> },
     { text: 'Services', path: '/services', icon: <CodeIcon /> },
     { text: 'Contact', path: '/contact', icon: <ContactIcon /> },
   ];
