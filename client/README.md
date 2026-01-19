@@ -1,47 +1,109 @@
-Це стандартний файл README.md, який генерується Create React App. Оскільки він вже написаний англійською мовою, я додав до нього структурування та короткі пояснення до кожного розділу, щоб він виглядав професійніше у вашому репозиторії.
+# Yurii Zvirianskyi — Full-Stack JavaScript Developer 🚀
 
-🚀 Portfolio Project Documentation
-This project was bootstrapped with Create React App. It serves as a modern, responsive web application built with React, Redux Toolkit, and Material UI.
+Welcome to my **portfolio project**, showcasing my skills in **frontend and backend development**, with experience in building **responsive, scalable, and user-friendly web applications**.
 
-🛠 Available Scripts
-In the project directory, you can run the following commands:
+Live Demo: [https://yurii0210.github.io/portfolio](https://yurii0210.github.io/portfolio)  
 
-npm start
-Purpose: Runs the app in development mode.
+---
 
-Access: Open http://localhost:3000 to view it in the browser.
+## 💻 About Me
 
-Features: The page will automatically reload when you save changes. Lint errors are displayed in the console.
+Hi! I’m **Yurii**, a passionate Full-Stack Developer with hands-on experience in **React, Redux, Node.js, Express, MongoDB, PostgreSQL**, and modern UI frameworks like **Material UI** and **Tailwind CSS**.  
 
-npm test
-Purpose: Launches the interactive test runner.
+I love creating **clean, maintainable code** and building **products that solve real-world problems**.
 
-Mode: Watch mode by default.
+---
 
-npm run build
-Purpose: Compiles the application for production to the build folder.
+## 🛠 Technologies & Tools
 
-Optimization: Minifies the code, optimizes assets, and includes hashes in filenames for caching.
+**Frontend:**  
+React.js, Redux Toolkit, JavaScript (ES6+), TypeScript, HTML5, CSS3, SCSS, Tailwind CSS, Material UI  
 
-Result: Your app is ready for deployment (e.g., to Vercel, Netlify, or a VPS).
+**Backend:**  
+Node.js, Express, RESTful APIs, GraphQL, MongoDB, PostgreSQL  
 
-npm run eject
-⚠️ Warning: This is a one-way operation.
+**Tools & DevOps:**  
+Git/GitHub, Docker, CI/CD pipelines, Postman, Vercel, Netlify  
 
-Purpose: If you need full control over Webpack/Babel configurations, this command moves all dependencies and config files into your project.
+**Others:**  
+i18next (multilingual support), Framer Motion (animations), Formik + Yup (form validation)  
 
-Recommendation: Avoid using this unless you have a specific architectural requirement that Create React App doesn't support.
+---
 
-🏗 Key Features & Architecture
-State Management: Handled by Redux Toolkit (Slices for projects, skills, and contact form).
+## 🏗 Key Features
 
-Routing: React Router v6 for seamless page transitions.
+- **Responsive Design:** Works on mobile, tablet, and desktop.  
+- **Multilingual Support:** English, Ukrainian, and Czech.  
+- **Dynamic Portfolio:** Filter projects by category (Frontend, React, Full-Stack).  
+- **Animated UI:** Smooth hover effects and scroll animations using Framer Motion.  
+- **Contact Form:** Validated form with email sending integration.  
+- **State Management:** Redux Toolkit slices for Projects, Skills, and Contact.  
 
-UI Framework: Material UI (MUI) with a customized dark theme.
+---
 
-Animations: Framer Motion for smooth scroll and hover effects.
+## 📂 Project Structure
 
-Styling: A mix of MUI System and global CSS3 animations.
+src/
+├─ components/ # Reusable components (Navbar, Footer, LanguageSwitcher)
+├─ pages/ # Main pages (Home, Portfolio, Resume, Contact)
+├─ redux/ # Redux store and slices
+├─ images/ # Assets
+├─ locales/ # i18n translations (en, uk, cs)
+└─ App.jsx # Main App component
 
-🌐 Deployment
-For more information on how to deploy this project, check out the CRA Deployment Guide.
+yaml
+Copy code
+
+---
+
+## 🚀 Scripts
+
+### `npm start`
+Run the app in development mode.  
+Open [http://localhost:3000](http://localhost:3000) to view it.  
+
+### `npm run build`
+Builds the app for production in the `build/` folder. Optimized and minified.  
+
+### `npm test`
+Runs the test runner in interactive watch mode.  
+
+### `npm run eject`
+⚠️ One-way operation — exposes full CRA configuration. Only use if needed.  
+
+---
+
+## 🌐 Deployment
+
+This project is deployed on **GitHub Pages**, but can also be hosted on:  
+- **Vercel**  
+- **Netlify**  
+- **Custom VPS / server**  
+
+---
+
+## 📸 Screenshots
+
+![Home Page](./screenshots/home.png)  
+![Portfolio Page](./screenshots/portfolio.png)  
+![Resume Page](./screenshots/resume.png)  
+![Contact Page](./screenshots/contact.png)  
+
+*(Add screenshots to the `screenshots/` folder for visuals.)*
+
+---
+
+## 📞 Contact
+
+Feel free to reach out:
+
+- **Email:** uriy0210ck@gmail.com  
+- **Phone:** +420 608-499-682  
+- **Location:** Tabor, Czech Republic  
+
+**Socials:**  
+[GitHub](https://github.com/yurii0210) | [LinkedIn](https://www.linkedin.com/in/yurii-zvirianskyi-37a88433b) | [Telegram](https://t.me/uriyzvir)
+
+---
+
+**Made with ❤️ using React, Redux Toolkit & Material UI**

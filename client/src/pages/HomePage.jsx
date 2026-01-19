@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
-import profilePic from '../images/profile.jpg';
+import { useTranslation, Trans } from 'react-i18next'; 
+import profilePic from '../images/profile.webp';
 import {
   Box,
   Typography,
@@ -23,6 +24,7 @@ import { fetchProjects } from '../redux/slices/projectsSlice';
 const HomePage = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
+  const { t } = useTranslation(); 
   const { status } = useSelector((state) => state.projects);
 
   useEffect(() => {
@@ -57,7 +59,7 @@ const HomePage = () => {
           display: 'flex',
           alignItems: 'center',
           overflow: 'hidden',
-          py: { xs: 4, md: 0 }, // Додаємо відступи для мобільних
+          py: { xs: 4, md: 0 }, 
           '&::before': {
             content: '""',
             position: 'absolute',
@@ -102,15 +104,13 @@ const HomePage = () => {
         </Box>
 
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          {/* ВИПРАВЛЕНО: Збільшено spacing для візуального розподілу */}
           <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center">
             
-            {/* Текстовий блок: ВИПРАВЛЕНО size -> item */}
             <Grid item xs={12} md={7} order={{ xs: 2, md: 1 }}>
               <motion.div variants={containerVariants} initial="hidden" animate="visible">
                 <motion.div variants={itemVariants}>
                   <Chip
-                    label="Full-Stack Developer"
+                    label={t('home.role')} // key role
                     icon={<CodeIcon sx={{ fontSize: '1.2rem !important' }} />}
                     sx={{
                       mb: 3, px: 1, fontWeight: 700,
@@ -132,12 +132,15 @@ const HomePage = () => {
                       mb: 2 
                     }}
                   >
-                    Hi, I'm <Box component="span" sx={{ 
-                      color: 'primary.main',
-                      background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                    }}>Yurii</Box>
+                    {/* Trans for rendering styled name from JSON */}
+                    <Trans i18nKey="home.hero.greeting">
+                      Hi, I'm <Box component="span" sx={{ 
+                        color: 'primary.main',
+                        background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                      }}>Yurii</Box>
+                    </Trans>
                   </Typography>
                 </motion.div>
 
@@ -147,7 +150,8 @@ const HomePage = () => {
                     color="text.secondary" 
                     sx={{ mb: 5, maxWidth: 550, lineHeight: 1.6, fontWeight: 400, fontSize: { xs: '1.1rem', md: '1.5rem' } }}
                   >
-                    Crafting <Box component="span" sx={{ color: 'text.primary', fontWeight: 600 }}>responsive and scalable</Box> web solutions with React, Node.js, and a passion for clean code.
+                    <strong>{t('home.hero.subtitle')}</strong> <br />
+                    {t('home.hero.description')}
                   </Typography>
                 </motion.div>
 
@@ -161,7 +165,7 @@ const HomePage = () => {
                       endIcon={<RocketIcon />}
                       sx={{ px: 4, py: 1.5, borderRadius: '12px', fontWeight: 700, textTransform: 'none' }}
                     >
-                      View Projects
+                      {t('home.buttons.viewProjects')}
                     </Button>
                     <Button 
                       variant="outlined" 
@@ -170,14 +174,13 @@ const HomePage = () => {
                       to="/contact"
                       sx={{ px: 4, py: 1.5, borderRadius: '12px', fontWeight: 700, textTransform: 'none' }}
                     >
-                      Contact Me
+                      {t('home.buttons.contactMe')}
                     </Button>
                   </Stack>
                 </motion.div>
               </motion.div>
             </Grid>
 
-            {/* Блок з фото: ВИПРАВЛЕНО size -> item */}
             <Grid item xs={12} md={5} order={{ xs: 1, md: 2 }}>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -198,7 +201,11 @@ const HomePage = () => {
                   
                   <Avatar
                     src={profilePic}
-                    alt="Yurii Zvirianskyi"
+                    alt={t('brand.name')}
+                    imgProps={{
+                    fetchpriority: "high", 
+                    loading: "eager"       
+                    }}
                     sx={{
                       width: { xs: 240, sm: 300, md: 380 },
                       height: { xs: 240, sm: 300, md: 380 },

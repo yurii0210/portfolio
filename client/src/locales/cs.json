@@ -1,0 +1,228 @@
+{
+  "nav": {
+    "home": "Domů",
+    "portfolio": "Portfolio",
+    "skills": "Dovednosti",
+    "resume": "Životopis",
+    "services": "Služby",
+    "contact": "Kontakt",
+    "menu": "MENU"
+  },
+  "brand": {
+    "name": "Jurij Zvirianskyj"
+  },
+  "footer": {
+    "brand": {
+      "name": "Jurij Zvirianskyj",
+      "description": "Full-Stack vývojář vytvářející moderní, responzivní webové aplikace s React, Node.js a MongoDB. Zaměřený na čistý kód a uživatelskou zkušenost."
+    },
+    "quickLinksTitle": "Rychlé odkazy",
+    "socialNetworksTitle": "Sociální sítě",
+    "links": {
+      "home": "Domů",
+      "portfolio": "Portfolio",
+      "skills": "Dovednosti",
+      "resume": "Životopis",
+      "services": "Služby",
+      "contact": "Kontakt"
+    },
+    "copyright": "© {{year}} Jurij Zvirianskyj. Všechna práva vyhrazena. Vytvořeno s ❤️ pomocí MERN",
+    "version": "v1.0.1"
+  },
+  "home": {
+    "role": "Full-Stack vývojář",
+    "hero": {
+      "greeting": "Ahoj, já jsem <1>Jurij</1>",
+      "subtitle": "Junior Software Developer",
+      "description": "Zkušenosti s full-stack vývojem v React a Node.js. Vytvářím responzivní webové aplikace s čistým a udržovatelným kódem."
+    },
+    "buttons": {
+      "viewProjects": "Zobrazit projekty",
+      "contactMe": "Kontaktujte mě"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "description": "Vybrané projekty ukazující zkušenosti s frontendem a full-stack vývojem.",
+    "categories": {
+      "all": "Vše",
+      "frontend": "Frontend",
+      "react": "React",
+      "fullstack": "Full Stack"
+    },
+    "tooltips": {
+      "github": "Zdrojový kód",
+      "demo": "Živé demo"
+    },
+    "portfolio": {
+  "title": "Portfolio",
+  "description": "Vybrané projekty demonstrující zkušenosti ve frontend a full-stack vývoji.",
+  "categories": {
+    "all": "Vše",
+    "frontend": "Frontend",
+    "react": "React",
+    "fullstack": "Full Stack"
+  },
+ "projects": {
+      "p1": { "title": "Responzivní web\nAdaptivní layout podle Figma návrhu" },
+      "p2": { "title": "Full Stack aplikace\nWebová aplikace s interaktivním frontendem" },
+      "p3": { "title": "React Context App\nSpráva stavu pomocí Context API" },
+      "p4": { "title": "Animace Měsíce\nProjekt s využitím pokročilých CSS animací" },
+      "p5": { "title": "Express šablony\nPráce s PUG a EJS v prostředí Node.js" }
+    }
+  }
+    
+  },
+
+  "resume": {
+    "header": {
+      "journey": "Moje cesta",
+      "title": "Životopis",
+      "subtitle": "Jurij — Frontend Developer | Zkušenosti s Full Stack"
+    },
+    "careerObjective": {
+      "title": "Cíl kariéry",
+      "description": "Jsem Frontend Developer s pevnými zkušenostmi v React, Redux, Tailwind CSS a SCSS. Mám také praktické zkušenosti s Node.js, Express a SQL/NoSQL databázemi, což mi poskytuje silný základ pro full-stack vývoj.\n\nMomentálně hledám pozice Junior / Middle Developer, kde mohu přispívat k vytváření škálovatelných webových aplikací, řešit reálné problémy a rozvíjet se jako součást profesionálního inženýrského týmu."
+    },
+    "sections": {
+      "experience": "Zkušenosti",
+      "education": "Vzdělání",
+      "technicalStack": "Technické dovednosti",
+      "softSkills": "Měkké dovednosti"
+    },
+    "cards": {
+      "experience1": {
+        "title": "Full Stack Developer (Projekty)",
+        "subtitle": "Osobní a vzdělávací projekty",
+        "date": "2025 – současnost",
+        "description": "- Vyvinul jsem task manager pomocí React, Redux, Node.js, PostgreSQL → zlepšil osobní produktivitu a UX.\n- Implementoval autentizaci pomocí JWT a zabezpečil REST API.\n- Responzivní design pro různé zařízení (Tailwind CSS / SCSS)"
+      },
+      "education1": {
+        "title": "Full Stack JavaScript Development",
+        "subtitle": "Hillel IT School",
+        "date": "2025",
+        "description": "Vytváření aplikací React + Node.js s CRUD, JWT autentizací a PostgreSQL",
+        "linkText": "Zobrazit certifikát"
+      },
+      "education2": {
+        "title": "Základy webového vývoje",
+        "subtitle": "IT Network School",
+        "date": "2025",
+        "description": "Základy frontendu: HTML, CSS, JavaScript, responzivní design, Bootstrap, SCSS.",
+        "linkText": "Zobrazit certifikát"
+      }
+    },
+    "softSkillsDescription": "Řešení problémů, Týmová práce, Kritické myšlení, Přizpůsobivost, Sebeřízení."
+  },
+  "services": {
+    "header": {
+      "overline": "Co umím",
+      "title": "Služby",
+      "subtitle": "Profesionální řešení přizpůsobená vašim potřebám, od konceptu po živou bezpečnou webovou stránku."
+    },
+    "list": [
+      {
+        "title": "Frontend vývoj",
+        "description": "Vytváření responzivních a uživatelsky přívětivých webů pomocí HTML, CSS, Bootstrap, SCSS a JavaScriptu."
+      },
+      {
+        "title": "JavaScript vývoj",
+        "description": "Vytváření interaktivních prvků, validace formulářů a dynamického obsahu pomocí moderního JavaScriptu ES6+."
+      },
+      {
+        "title": "Responzivní design",
+        "description": "Vývoj rozvržení, které správně funguje na mobilních, tabletech i desktopu pro nejlepší UX."
+      },
+      {
+        "title": "React aplikace",
+        "description": "Vytváření jednoduchých a funkčních React aplikací s komponentami, hooky a správou stavu."
+      },
+      {
+        "title": "Základy backendu",
+        "description": "Vytváření základní backend funkcionality s Node.js, Express a REST API pro vaše aplikace."
+      },
+      {
+        "title": "Kontrola verzí",
+        "description": "Práce s Git a GitHub pro kontrolu verzí, spolupráci a bezpečné nasazení projektů."
+      },
+      {
+        "title": "Doména a hosting",
+        "description": "Pomoc s registrací domény, nastavením SSL a nasazením projektů na Vercel, Netlify nebo VPS."
+      }
+    ],
+    "cta": {
+      "button": "Začít projekt společně",
+      "subtitle": "Máte konkrétní požadavek? Probereme to!"
+    }
+  },
+  "skills": {
+    "header": {
+      "overline": "Můj stack",
+      "title": "Full-Stack dovednosti"
+    },
+    "groups": [
+      {
+        "title": "Frontend vývoj",
+        "tags": ["Context API"],
+        "skills": [
+          { "name": "React.js / Redux", "value": 70 },
+          { "name": "JavaScript (ES6+)", "value": 80 },
+          { "name": "HTML5 / CSS3 / SASS", "value": 90 },
+          { "name": "MUI / Tailwind CSS", "value": 80 }
+        ]
+      },
+      {
+        "title": "Backend & Databáze",
+        "tags": ["JWT", "Brevo", "OAuth"],
+        "skills": [
+          { "name": "Node.js / Express", "value": 80 },
+          { "name": "RESTful APIs / GraphQL", "value": 75 },
+          { "name": "MongoDB / Mongoose", "value": 80 },
+          { "name": "SQL (PostgreSQL/MySQL)", "value": 70 }
+        ]
+      },
+      {
+        "title": "Nástroje a DevOps",
+        "tags": [],
+        "skills": [
+          { "name": "Git / GitHub", "value": 90 },
+          { "name": "Docker / CI/CD", "value": 70 },
+          { "name": "Postman / Insomnia", "value": 90 },
+          { "name": "Render / Vercel", "value": 80 }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "header": {
+      "overline": "Kontakt",
+      "title": "Pojďme zrealizovat vaše nápady!"
+    },
+    "form": {
+      "name": "Vaše jméno",
+      "email": "Emailová adresa",
+      "message": "Detaily projektu",
+      "submit": {
+        "sending": "Odesílání...",
+        "default": "Odeslat zprávu"
+      },
+      "validation": {
+        "name_short": "Jméno je příliš krátké",
+        "name_long": "Jméno je příliš dlouhé",
+        "email_invalid": "Neplatný formát emailu",
+        "required": "Povinné pole",
+        "message_short": "Zpráva je příliš krátká",
+        "message_long": "Zpráva je příliš dlouhá"
+      }
+    },
+    "details": {
+      "title": "Kontaktní údaje",
+      "follow": "Sledujte mě",
+      "items": {
+        "email": "Email",
+        "phone": "Telefon",
+        "location": "Lokace"
+      }
+    }
+  }
+}

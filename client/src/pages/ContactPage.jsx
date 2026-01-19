@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next'; 
 import {
   Container,
   Typography,
@@ -29,26 +30,36 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 const ContactPage = () => {
+  const { t } = useTranslation(); // i18n
   const dispatch = useDispatch();
   const { status, error, successMessage } = useSelector((state) => state.contact);
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
+  // Validation key JSON
   const validationSchema = Yup.object({
-    name: Yup.string().min(2, 'Name is too short').max(50, 'Name is too long').required('Required field'),
-    email: Yup.string().email('Invalid email format').required('Required field'),
-    message: Yup.string().min(10, 'Message is too short').max(1000, 'Message is too long').required('Required field'),
+    name: Yup.string()
+      .min(2, t('contact.form.validation.name_short'))
+      .max(50, t('contact.form.validation.name_long'))
+      .required(t('contact.form.validation.required')),
+    email: Yup.string()
+      .email(t('contact.form.validation.email_invalid'))
+      .required(t('contact.form.validation.required')),
+    message: Yup.string()
+      .min(10, t('contact.form.validation.message_short'))
+      .max(1000, t('contact.form.validation.message_long'))
+      .required(t('contact.form.validation.required')),
   });
 
   const initialValues = { name: '', email: '', message: '' };
 
- const handleSubmit = async (values, { resetForm }) => {
-  try {
-    await dispatch(sendContactMessage(values)).unwrap();
-    resetForm(); 
-  } catch (error) {
-    console.error("Send message failed:", error);
-  }
-};
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      await dispatch(sendContactMessage(values)).unwrap();
+      resetForm();
+    } catch (error) {
+      console.error("Send message failed:", error);
+    }
+  };
 
   useEffect(() => {
     return () => dispatch(clearStatus());
@@ -67,9 +78,9 @@ const ContactPage = () => {
   };
 
   const contactInfo = [
-    { icon: <EmailIcon fontSize="small" />, title: 'Email', value: 'uriy0210ck@gmail.com', link: 'mailto:uriy0210ck@gmail.com' },
-    { icon: <PhoneIcon fontSize="small" />, title: 'Phone', value: '+420 608-499-682', link: 'tel:+420608499682' },
-    { icon: <LocationIcon fontSize="small" />, title: 'Location', value: 'Tabor, Czech Republic', link: 'https://maps.app.goo.gl/nkAJi6b5oNyfSMGp9' },
+    { icon: <EmailIcon fontSize="small" />, title: t('contact.details.items.email'), value: 'uriy0210ck@gmail.com', link: 'mailto:uriy0210ck@gmail.com' },
+    { icon: <PhoneIcon fontSize="small" />, title: t('contact.details.items.phone'), value: '+420 608-499-682', link: 'tel:+420608499682' },
+    { icon: <LocationIcon fontSize="small" />, title: t('contact.details.items.location'), value: 'Tabor, Czech Republic', link: 'https://goo.gl/maps/...' },
   ];
 
   const socialLinks = [
@@ -80,42 +91,23 @@ const ContactPage = () => {
 
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+        
+        {/* HEADER */}
         <Box sx={{ mb: 6, textAlign: 'center' }}>
-          <Typography 
-            variant="overline" 
-            color="primary" 
-            sx={{ fontWeight: 800, fontSize: '0.9rem', letterSpacing: 2, mb: 1, display: 'block' }}
-          >
-            Contact
+          <Typography variant="overline" color="primary" sx={{ fontWeight: 800, fontSize: '0.9rem', letterSpacing: 2, mb: 1, display: 'block' }}>
+            {t('contact.header.overline')}
           </Typography>
           <Typography variant="h3" sx={{ fontWeight: 800, mb: 2, fontSize: { xs: '2rem', md: '3rem' } }}>
-            Let’s bring your ideas to life!
+            {t('contact.header.title')}
           </Typography>
         </Box>
 
         <Grid container spacing={5}>
-          
+          {/* FORM SECTION */}
           <Grid item xs={12} md={7}>
-            <Paper 
-              elevation={0} 
-              sx={{ 
-                p: { xs: 3, md: 4 }, 
-                borderRadius: 4, 
-                border: '1px solid',
-                borderColor: 'divider',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.05)'
-              }}
-            >
-              <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={handleSubmit}
-              >
+            <Paper elevation={0} sx={{ p: { xs: 3, md: 4 }, borderRadius: 4, border: '1px solid', borderColor: 'divider' }}>
+              <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
                 {({ errors, touched }) => (
                   <Form>
                     <Grid container spacing={3}>
@@ -124,7 +116,7 @@ const ContactPage = () => {
                           as={TextField}
                           fullWidth
                           name="name"
-                          label="Your Name"
+                          label={t('contact.form.name')} 
                           variant="filled"
                           InputProps={{ disableUnderline: true, sx: { borderRadius: 2 } }}
                           error={touched.name && Boolean(errors.name)}
@@ -137,7 +129,7 @@ const ContactPage = () => {
                           as={TextField}
                           fullWidth
                           name="email"
-                          label="Email Address"
+                          label={t('contact.form.email')} 
                           variant="filled"
                           InputProps={{ disableUnderline: true, sx: { borderRadius: 2 } }}
                           error={touched.email && Boolean(errors.email)}
@@ -150,7 +142,7 @@ const ContactPage = () => {
                           as={TextField}
                           fullWidth
                           name="message"
-                          label="Project Details"
+                          label={t('contact.form.message')} 
                           variant="filled"
                           multiline
                           rows={4}
@@ -168,14 +160,12 @@ const ContactPage = () => {
                           fullWidth
                           disabled={status === 'loading'}
                           startIcon={status === 'loading' ? <CircularProgress size={20} color="inherit" /> : <SendIcon />}
-                          sx={{ 
-                            py: 1.5, 
-                            borderRadius: 2, 
-                            fontWeight: 700,
-                            textTransform: 'none'
-                          }}
+                          sx={{ py: 1.5, borderRadius: 2, fontWeight: 700, textTransform: 'none' }}
                         >
-                          {status === 'loading' ? 'Sending...' : 'Send Message'}
+                          {status === 'loading' 
+                            ? t('contact.form.submit.sending') 
+                            : t('contact.form.submit.default')
+                          }
                         </Button>
                       </Grid>
                     </Grid>
@@ -185,9 +175,13 @@ const ContactPage = () => {
             </Paper>
           </Grid>
 
+          {/* DETAILS SECTION */}
           <Grid item xs={12} md={5}>
             <Box sx={{ pl: { md: 2 } }}>
-              <Typography variant="h5" sx={{ fontWeight: 700, mb: 3 }}>Contact Details</Typography>
+              <Typography variant="h5" sx={{ fontWeight: 700, mb: 3 }}>
+                {t('contact.details.title')}
+              </Typography>
+              
               {contactInfo.map((info, index) => (
                 <Box key={index} sx={{ display: 'flex', mb: 3 }}>
                   <Box sx={{ 
@@ -201,25 +195,21 @@ const ContactPage = () => {
                     <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600, textTransform: 'uppercase' }}>
                       {info.title}
                     </Typography>
-                    <Typography 
-                      component="a" href={info.link} 
-                      sx={{ display: 'block', color: 'text.primary', textDecoration: 'none', fontWeight: 600 }}
-                    >
+                    <Typography component="a" href={info.link} sx={{ display: 'block', color: 'text.primary', textDecoration: 'none', fontWeight: 600 }}>
                       {info.value}
                     </Typography>
                   </Box>
                 </Box>
               ))}
+
               <Divider sx={{ my: 3 }} />
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>Follow Me</Typography>
+              
+              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
+                {t('contact.details.follow')}
+              </Typography>
               <Box sx={{ display: 'flex', gap: 1.5 }}>
                 {socialLinks.map((social) => (
-                  <IconButton 
-                    key={social.label} 
-                    href={social.url} 
-                    target="_blank"
-                    sx={{ border: '1px solid', borderColor: 'divider' }}
-                  >
+                  <IconButton key={social.label} href={social.url} target="_blank" sx={{ border: '1px solid', borderColor: 'divider' }}>
                     {social.icon}
                   </IconButton>
                 ))}
@@ -229,6 +219,7 @@ const ContactPage = () => {
         </Grid>
       </motion.div>
 
+      {/* SNACKBAR  */}
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
         <Alert severity={status === 'succeeded' ? 'success' : 'error'} variant="filled" onClose={handleCloseSnackbar}>
           {status === 'succeeded' ? successMessage : error}

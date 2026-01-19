@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next'; 
 import { 
   Container, 
   Typography, 
@@ -32,7 +33,6 @@ const SkillItem = ({ name, value, index }) => (
       <Typography variant="body2" sx={{ fontWeight: 700 }}>{name}</Typography>
       <Typography variant="body2" color="text.secondary">{value}%</Typography>
     </Box>
-    {/* Анімація прогресу тепер спрацьовує плавно при появі */}
     <motion.div
       initial={{ scaleX: 0, originX: 0 }}
       whileInView={{ scaleX: 1 }}
@@ -45,6 +45,8 @@ const SkillItem = ({ name, value, index }) => (
 );
 
 const FullStackSkills = () => {
+  const { t } = useTranslation(); 
+
   const skillGroups = [
     {
       title: 'Frontend Development',
@@ -53,7 +55,7 @@ const FullStackSkills = () => {
         { name: 'React.js / Redux', value: 70 },
         { name: 'JavaScript (ES6+)', value: 80 },
         { name: 'HTML5 / CSS3 / SASS', value: 90 },
-        { name: 'MUI / Tailwind CSS', value: 90 },
+        { name: 'MUI / Tailwind CSS', value: 80 },
       ]
     },
     {
@@ -70,7 +72,7 @@ const FullStackSkills = () => {
       title: 'Tools & DevOps',
       icon: <BuildIcon sx={{ mr: 1 }} />,
       skills: [
-        { name: 'Git / GitHub', value: 85 },
+        { name: 'Git / GitHub', value: 90 },
         { name: 'Docker / CI/CD', value: 70 },
         { name: 'Postman / Insomnia', value: 90 },
         { name: 'Render / Vercel', value: 80 },
@@ -98,7 +100,7 @@ const FullStackSkills = () => {
             color="primary" 
             sx={{ fontWeight: 800, letterSpacing: 4, fontSize: { xs: '1rem', md: '1.2rem' } }}
           >
-            My Stack
+            {t('skills.header.overline')}
           </Typography>
           <Typography 
             variant="h2" 
@@ -108,11 +110,10 @@ const FullStackSkills = () => {
               fontSize: { xs: '2.5rem', md: '3.75rem' } 
             }}
           >
-            Full-Stack Proficiency
+            {t('skills.header.title')}
           </Typography>
         </Box>
 
-        {/* ВИПРАВЛЕНО: Використання стандартного Grid v5 */}
         <Grid container spacing={4}>
           {skillGroups.map((group, groupIndex) => (
             <Grid item xs={12} md={4} key={group.title}>
@@ -154,7 +155,6 @@ const FullStackSkills = () => {
                     ))}
                   </Box>
                   
-                  {/* Додаткові теги для візуального наповнення */}
                   <Box sx={{ mt: 2, display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                     {group.title.includes('Backend') ? (
                       ['JWT', 'Brevo', 'OAuth'].map(tag => (

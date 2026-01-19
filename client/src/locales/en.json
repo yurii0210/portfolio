@@ -1,0 +1,231 @@
+{
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "skills": "Skills",
+    "resume": "Resume",
+    "services": "Services",
+    "contact": "Contact",
+    "menu": "MENU"
+  },
+  "brand": {
+    "name": "Yurii Zvirianskyi"
+  },
+  "footer": {
+    "brand": {
+      "name": "Yurii Zvirianskyi",
+      "description": "Full-Stack Developer building modern, responsive web applications with React, Node.js & MongoDB. Focused on clean code and user experience."
+    },
+    "quickLinksTitle": "Quick Links",
+    "socialNetworksTitle": "Social Networks",
+    "links": {
+      "home": "Home",
+      "portfolio": "Portfolio",
+      "skills": "Skills",
+      "resume": "Resume",
+      "services": "Services",
+      "contact": "Contact"
+    },
+    "copyright": "© {{year}} Yurii Zvirianskyi. All rights reserved. Built with ❤️ using MERN",
+    "version": "v1.0.1"
+  },
+  "home": {
+    "role": "Full-Stack Developer",
+    "hero": {
+      "greeting": "Hi, I'm <1>Yurii</1>",
+      "subtitle": "Junior Software Developer",
+      "description": "Full-stack experience with React and Node.js. I build responsive web applications with clean, maintainable code."
+    },
+    "buttons": {
+      "viewProjects": "View Projects",
+      "contactMe": "Contact Me"
+    }
+  },
+   "portfolio": {
+    "title": "Portfolio",
+    "description": "Selected projects showcasing frontend and full-stack development experience.",
+    "categories": {
+      "all": "All",
+      "frontend": "Frontend",
+      "react": "React",
+      "fullstack": "Full Stack"
+    },
+    "tooltips": {
+      "github": "Source Code",
+      "demo": "Live Demo"
+    },
+    "portfolio": {
+  "title": "Portfolio",
+  "description": "Selected projects showcasing frontend and full-stack development experience.",
+  "categories": {
+    "all": "All",
+    "frontend": "Frontend",
+    "react": "React",
+    "fullstack": "Full Stack"
+  },
+ "projects": {
+  "p1": { "title": "Responsive Website\nLayout based on Figma design" },
+  "p2": { "title": "Full Stack App\nInteractive Insurance system" },
+  "p3": { "title": "React Context App\nState management with Context API" },
+  "p4": { "title": "Moon Animation\nProject using complex CSS animations" },
+  "p5": { "title": "Express Templates\nWorking with PUG & EJS on Node.js" }
+}
+}
+   
+
+  },
+  "resume": {
+    "header": {
+      "journey": "My Journey",
+      "title": "Resume",
+      "subtitle": "Yurii — Frontend Developer | Full Stack Experience"
+    },
+    "careerObjective": {
+      "title": "Career Objective",
+      "description": "I’m a Frontend Developer with solid experience in React, Redux, Tailwind CSS, and SCSS. I also have hands-on experience with Node.js, Express, and SQL/NoSQL databases, giving me a strong foundation for full-stack development.\n\nCurrently seeking Junior / Middle Developer roles where I can contribute to building scalable, user-friendly web applications, solve real-world problems, and grow as part of a professional engineering team."
+    },
+    "sections": {
+      "experience": "Experience",
+      "education": "Education",
+      "technicalStack": "Technical Stack",
+      "softSkills": "Soft Skills"
+    },
+    "cards": {
+      "experience1": {
+        "title": "Full Stack Developer (Projects)",
+        "subtitle": "Personal & Educational Projects",
+        "date": "2025 – Present",
+        "description": "- Developed a task manager using React, Redux, Node.js, PostgreSQL → improved personal productivity and UI experience.\n- Implemented authentication with JWT and secured REST API endpoints.\n- Responsive design across devices (Tailwind CSS / SCSS)"
+      },
+      "education1": {
+        "title": "Full Stack JavaScript Development",
+        "subtitle": "Hillel IT School",
+        "date": "2025",
+        "description": "Built React + Node.js applications with CRUD, JWT auth, and PostgreSQL",
+        "linkText": "View Certificate"
+      },
+      "education2": {
+        "title": "Web Development Basics",
+        "subtitle": "IT Network School",
+        "date": "2025",
+        "description": "Frontend fundamentals: HTML, CSS, JavaScript, responsive design, Bootstrap, SCSS.",
+        "linkText": "View Certificate"
+      }
+    },
+    "softSkillsDescription": "Problem Solving, Teamwork, Critical Thinking, Adaptability, Self-Management."
+  },
+   "services": {
+    "header": {
+      "overline": "What I Can Do",
+      "title": "Services",
+      "subtitle": "Professional solutions tailored to your needs, from initial concept to a live, secure website."
+    },
+    "list": [
+      {
+        "title": "Frontend Development",
+        "description": "Building responsive and user-friendly websites using HTML, CSS, Bootstrap, SCSS, and JavaScript."
+      },
+      {
+        "title": "JavaScript Development",
+        "description": "Creating interactive features, form validation, and dynamic content using modern JavaScript ES6+."
+      },
+      {
+        "title": "Responsive Design",
+        "description": "Developing layouts that work correctly on mobile, tablet, and desktop devices for the best UX."
+      },
+      {
+        "title": "React Applications",
+        "description": "Building simple and functional React applications using components, hooks, and state management."
+      },
+      {
+        "title": "Backend Basics",
+        "description": "Creating basic backend functionality with Node.js, Express, and REST APIs for your applications."
+      },
+      {
+        "title": "Version Control",
+        "description": "Working with Git and GitHub for version control, collaboration, and safe project deployment."
+      },
+      {
+        "title": "Domain & Hosting",
+        "description": "Assistance with domain registration, SSL setup, and deploying projects to Vercel, Netlify or VPS."
+      }
+    ],
+    "cta": {
+      "button": "Start a Project Together",
+      "subtitle": "Got a specific request? Let's discuss it!"
+    }
+  },
+  "skills": {
+    "header": {
+      "overline": "My Stack",
+      "title": "Full-Stack Proficiency"
+    },
+    "groups": [
+      {
+        "title": "Frontend Development",
+        "tags": ["Context API"],
+        "skills": [
+          { "name": "React.js / Redux", "value": 70 },
+          { "name": "JavaScript (ES6+)", "value": 80 },
+          { "name": "HTML5 / CSS3 / SASS", "value": 90 },
+          { "name": "MUI / Tailwind CSS", "value": 80 }
+        ]
+      },
+      {
+        "title": "Backend & Databases",
+        "tags": ["JWT", "Brevo", "OAuth"],
+        "skills": [
+          { "name": "Node.js / Express", "value": 80 },
+          { "name": "RESTful APIs / GraphQL", "value": 75 },
+          { "name": "MongoDB / Mongoose", "value": 80 },
+          { "name": "SQL (PostgreSQL/MySQL)", "value": 70 }
+        ]
+      },
+      {
+        "title": "Tools & DevOps",
+        "tags": [],
+        "skills": [
+          { "name": "Git / GitHub", "value": 90 },
+          { "name": "Docker / CI/CD", "value": 70 },
+          { "name": "Postman / Insomnia", "value": 90 },
+          { "name": "Render / Vercel", "value": 80 }
+        ]
+      }
+    ]
+  },
+   "contact": {
+    "header": {
+      "overline": "Contact",
+      "title": "Let’s bring your ideas to life!"
+    },
+    "form": {
+      "name": "Your Name",
+      "email": "Email Address",
+      "message": "Project Details",
+      "submit": {
+        "sending": "Sending...",
+        "default": "Send Message"
+      },
+      "validation": {
+        "name_short": "Name is too short",
+        "name_long": "Name is too long",
+        "email_invalid": "Invalid email format",
+        "required": "Required field",
+        "message_short": "Message is too short",
+        "message_long": "Message is too long"
+      }
+    },
+    "details": {
+      "title": "Contact Details",
+      "follow": "Follow Me",
+      "items": {
+        "email": "Email",
+        "phone": "Phone",
+        "location": "Location"
+      }
+    }
+  }
+}
+
+
+

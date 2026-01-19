@@ -1,17 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
-  Container,
-  Typography,
-  Box,
-  Grid,
-  Card,
-  CardMedia,
-  CardContent,
-  IconButton,
-  Tabs,
-  Tab,
-  Tooltip,
-  useTheme
+  Container, Typography, Box, Grid, Card, CardMedia,
+  CardContent, IconButton, Tabs, Tab, Tooltip, useTheme
 } from '@mui/material';
 import {
   GitHub as GitHubIcon,
@@ -19,7 +10,6 @@ import {
 } from '@mui/icons-material';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Image imports
 import ResponsiveImg from '../images/responsive.webp';
 import FullStackImg from '../images/full-stack.webp';
 import ReactLogoImg from '../images/react-logo.webp';
@@ -27,62 +17,71 @@ import MoonImg from '../images/moon.webp';
 import PugImg from '../images/pug-logo.webp';
 
 const PortfolioSection = () => {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState('all');
   const theme = useTheme();
+
+  const projectImages = {
+    1: ResponsiveImg,
+    2: FullStackImg,
+    3: ReactLogoImg,
+    4: MoonImg,
+    5: PugImg,
+  };
 
   const projects = [
     {
       id: 1,
-      title: 'Responsive Website',
       category: 'frontend',
-      image: ResponsiveImg,
-      tech: 'HTML, CSS, Bootstrap',
+      image: projectImages[1],
       demoLink: 'https://yurii0210.github.io/responsivni-web-figma/',
       githubLink: 'https://github.com/yurii0210',
+      title: 'Responsive Website. \nResponsive website with adaptive layout...',
+      tech: 'HTML, CSS, Bootstrap'
     },
     {
       id: 2,
-      title: 'Full Stack Website',
       category: 'fullstack',
-      image: FullStackImg,
-      tech: 'HTML, CSS, Bootstrap, JavaScript',
+      image: projectImages[2],
       demoLink: 'https://yurii0210.github.io/projekt-insurance-app/',
       githubLink: 'https://github.com/yurii0210',
+      title: 'Full Stack Website. \nWeb application with interactive frontend...',
+      tech: 'HTML, CSS, Bootstrap, JavaScript'
     },
     {
       id: 3,
-      title: 'React Context Project',
       category: 'react',
-      image: ReactLogoImg,
-      tech: 'React, Bootstrap, JavaScript',
+      image: projectImages[3],
       demoLink: 'https://github.com/yurii0210/React-Context.git',
       githubLink: 'https://github.com/yurii0210',
+      title: 'React Context App. \nState management using Context API',
+      tech: 'React, JS, Context API'
     },
     {
       id: 4,
-      title: 'CSS Project (Moon)',
       category: 'frontend',
-      image: MoonImg,
-      tech: 'HTML, CSS, Animations',
+      image: projectImages[4],
       demoLink: 'https://yurii0210.github.io/moon-earth/',
       githubLink: 'https://github.com/yurii0210',
+      title: 'Moon Animation. \nCSS based space animations',
+      tech: 'HTML, CSS, Animations'
     },
     {
       id: 5,
-      title: 'PUG & EJS Express',
       category: 'frontend',
-      image: PugImg,
-      tech: 'Node.js, Express, PUG, EJS',
+      image: projectImages[5],
       demoLink: 'https://yurii0210.github.io/PUG-and-EJS-from-Express/',
       githubLink: 'https://github.com/yurii0210',
+      title: 'Express Templates. \nWorking with PUG and EJS',
+      tech: 'Node.js, Express, PUG, EJS'
     },
   ];
 
   const categories = [
-    { label: 'All', value: 'all' },
-    { label: 'Frontend', value: 'frontend' },
-    { label: 'React', value: 'react' },
-    { label: 'Full Stack', value: 'fullstack' },
+    { label: t('portfolio.categories.all'), value: 'all' },
+    { label: t('portfolio.categories.frontend'), value: 'frontend' },
+    { label: t('portfolio.categories.react'), value: 'react' },
+    { label: t('portfolio.categories.fullstack'), value: 'fullstack' },
   ];
 
   const filteredProjects = filter === 'all' 
@@ -92,18 +91,15 @@ const PortfolioSection = () => {
   return (
     <Box component="section" id="portfolio" sx={{ py: { xs: 8, md: 12 }, bgcolor: 'background.default' }}>
       <Container maxWidth="lg">
-        {/* Section Header */}
         <Box sx={{ textAlign: 'center', mb: 8 }}>
           <Typography variant="h2" sx={{ fontWeight: 800, mb: 3, fontSize: { xs: '2.5rem', md: '3.75rem' } }}>
-            Portfolio
+            {t('portfolio.title')}
           </Typography>
           <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 800, mx: 'auto', fontWeight: 400 }}>
-            Explore my personal and educational projects. These works showcase my expertise 
-            in frontend and full-stack development.
+            {t('portfolio.description')}
           </Typography>
         </Box>
 
-        {/* Filter Tabs */}
         <Box sx={{ display: 'flex', justifyContent: 'center', mb: 6 }}>
           <Tabs 
             value={filter} 
@@ -119,15 +115,11 @@ const PortfolioSection = () => {
           </Tabs>
         </Box>
 
-        {/* ВИПРАВЛЕНО: Додано container та spacing={4} */}
         <Grid container spacing={4}>
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
               <Grid 
-                item 
-                xs={12} 
-                sm={6} 
-                md={4} 
+                item xs={12} sm={6} md={4} 
                 key={project.id}
                 layout
                 component={motion.div}
@@ -138,19 +130,11 @@ const PortfolioSection = () => {
                 sx={{ display: 'flex' }}
               >
                 <Card sx={{ 
-                  display: 'flex',
-                  flexDirection: 'column',
-                  width: '100%',
-                  borderRadius: 4, 
-                  position: 'relative',
-                  overflow: 'hidden',
-                  border: '1px solid',
-                  borderColor: 'divider',
+                  display: 'flex', flexDirection: 'column', width: '100%',
+                  borderRadius: 4, position: 'relative', overflow: 'hidden',
+                  border: '1px solid', borderColor: 'divider',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                  '&:hover': { 
-                    boxShadow: theme.shadows[15],
-                    transform: 'translateY(-8px)'
-                  },
+                  '&:hover': { boxShadow: theme.shadows[15], transform: 'translateY(-8px)' },
                   '&:hover .overlay': { opacity: 1 },
                   '&:hover img': { transform: 'scale(1.1)' }
                 }}>
@@ -160,12 +144,8 @@ const PortfolioSection = () => {
                       image={project.image}
                       alt={project.title}
                       sx={{ 
-                        position: 'absolute',
-                        top: 0,
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        transition: '0.6s cubic-bezier(0.4, 0, 0.2, 1)' 
+                        position: 'absolute', top: 0, width: '100%', height: '100%',
+                        objectFit: 'cover', transition: '0.6s cubic-bezier(0.4, 0, 0.2, 1)' 
                       }}
                     />
                     
@@ -174,22 +154,19 @@ const PortfolioSection = () => {
                       bgcolor: 'rgba(15, 23, 42, 0.85)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       opacity: 0, transition: '0.3s ease', gap: 2,
-                      zIndex: 2,
-                      backdropFilter: 'blur(4px)'
+                      zIndex: 2, backdropFilter: 'blur(4px)'
                     }}>
-                      <Tooltip title="Source Code" arrow>
+                      <Tooltip title={t('portfolio.tooltips.github')} arrow>
                         <IconButton 
-                          href={project.githubLink} 
-                          target="_blank" 
+                          href={project.githubLink} target="_blank" 
                           sx={{ color: 'white', border: '1px solid rgba(255,255,255,0.4)', '&:hover': { bgcolor: 'primary.main', borderColor: 'primary.main' } }}
                         >
                           <GitHubIcon />
                         </IconButton>
                       </Tooltip>
-                      <Tooltip title="Live Demo" arrow>
+                      <Tooltip title={t('portfolio.tooltips.demo')} arrow>
                         <IconButton 
-                          href={project.demoLink} 
-                          target="_blank" 
+                          href={project.demoLink} target="_blank" 
                           sx={{ color: 'white', border: '1px solid rgba(255,255,255,0.4)', '&:hover': { bgcolor: 'primary.main', borderColor: 'primary.main' } }}
                         >
                           <DemoIcon />
@@ -198,15 +175,8 @@ const PortfolioSection = () => {
                     </Box>
                   </Box>
 
-                  <CardContent sx={{ 
-                    textAlign: 'center', 
-                    flexGrow: 1, 
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    p: 3
-                  }}>
-                    <Typography variant="h6" sx={{ fontWeight: 800, lineHeight: 1.2, mb: 2 }}>
+                  <CardContent sx={{ textAlign: 'center', flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', p: 3 }}>
+                    <Typography variant="h6" sx={{ fontWeight: 800, lineHeight: 1.2, mb: 2, whiteSpace: 'pre-line' }}>
                       {project.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 500 }}>

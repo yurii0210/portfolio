@@ -1,0 +1,226 @@
+{
+  "nav": {
+    "home": "Головна",
+    "portfolio": "Портфоліо",
+    "skills": "Навички",
+    "resume": "Резюме",
+    "services": "Послуги",
+    "contact": "Контакти",
+    "menu": "МЕНЮ"
+  },
+  "brand": {
+    "name": "Юрій Звірянський"
+  },
+  "footer": {
+    "brand": {
+      "name": "Юрій Звірянський",
+      "description": "Full-Stack розробник, що створює сучасні адаптивні веб-застосунки з React, Node.js та MongoDB. Орієнтований на чистий код та зручність користувача."
+    },
+    "quickLinksTitle": "Швидкі посилання",
+    "socialNetworksTitle": "Соцмережі",
+    "links": {
+      "home": "Головна",
+      "portfolio": "Портфоліо",
+      "skills": "Навички",
+      "resume": "Резюме",
+      "services": "Послуги",
+      "contact": "Контакти"
+    },
+    "copyright": "© {{year}} Юрій Звірянський. Всі права захищені. Створено з ❤️ за допомогою MERN",
+    "version": "v1.0.1"
+  },
+  "home": {
+    "role": "Full-Stack розробник",
+    "hero": {
+      "greeting": "Привіт, я <1>Юрій</1>",
+      "subtitle": "Молодший програміст",
+      "description": "Досвід повного циклу розробки з React та Node.js. Створюю адаптивні веб-застосунки з чистим та підтримуваним кодом."
+    },
+    "buttons": {
+      "viewProjects": "Переглянути проєкти",
+      "contactMe": "Зв'язатися зі мною"
+    }
+  },
+  "portfolio": {
+    "title": "Портфоліо",
+    "description": "Вибрані проєкти, що демонструють досвід у фронтенд та full-stack розробці.",
+    "categories": {
+      "all": "Всі",
+      "frontend": "Фронтенд",
+      "react": "React",
+      "fullstack": "Full Stack"
+    },
+    "tooltips": {
+      "github": "Код на GitHub",
+      "demo": "Живий демо"
+    },
+    "portfolio": {
+  "title": "Portfolio",
+  "description": "Selected projects showcasing frontend and full-stack development experience.",
+  "categories": {
+    "all": "All",
+    "frontend": "Frontend",
+    "react": "React",
+    "fullstack": "Full Stack"
+  },
+  "projects": {
+  "p1": { "title": "Адаптивний сайт\nВерстка згідно з макетом Figma" },
+  "p2": { "title": "Full Stack додаток\nІнтерактивна система страхування" },
+  "p3": { "title": "React Context App\nУправління станом через Context API" },
+  "p4": { "title": "Анімація Місяця\nПроєкт з використанням складних CSS анімацій" },
+  "p5": { "title": "Express шаблонізатори\nРобота з PUG та EJS на Node.js" }
+}
+}
+  },
+  "resume": {
+    "header": {
+      "journey": "Мій шлях",
+      "title": "Резюме",
+      "subtitle": "Юрій — Frontend розробник | Досвід Full Stack"
+    },
+    "careerObjective": {
+      "title": "Мета кар'єри",
+      "description": "Я Frontend розробник з досвідом у React, Redux, Tailwind CSS та SCSS. Також маю практичний досвід з Node.js, Express та SQL/NoSQL базами даних, що дає міцну основу для full-stack розробки.\n\nНаразі шукаю позиції Junior / Middle Developer, де можу створювати масштабовані веб-застосунки, вирішувати реальні завдання та розвиватися в команді професійних інженерів."
+    },
+    "sections": {
+      "experience": "Досвід",
+      "education": "Освіта",
+      "technicalStack": "Технічні навички",
+      "softSkills": "М'які навички"
+    },
+    "cards": {
+      "experience1": {
+        "title": "Full Stack Developer (Проєкти)",
+        "subtitle": "Особисті та навчальні проєкти",
+        "date": "2025 – теперішній час",
+        "description": "- Розробив таск-менеджер з React, Redux, Node.js, PostgreSQL → покращив особисту продуктивність та UX.\n- Реалізував аутентифікацію через JWT та захист REST API.\n- Адаптивний дизайн для різних пристроїв (Tailwind CSS / SCSS)"
+      },
+      "education1": {
+        "title": "Full Stack JavaScript Development",
+        "subtitle": "Hillel IT School",
+        "date": "2025",
+        "description": "Створював React + Node.js застосунки з CRUD, JWT аутентифікацією та PostgreSQL",
+        "linkText": "Переглянути сертифікат"
+      },
+      "education2": {
+        "title": "Основи веб-розробки",
+        "subtitle": "IT Network School",
+        "date": "2025",
+        "description": "Фронтенд основи: HTML, CSS, JavaScript, адаптивний дизайн, Bootstrap, SCSS.",
+        "linkText": "Переглянути сертифікат"
+      }
+    },
+    "softSkillsDescription": "Вирішення проблем, Командна робота, Критичне мислення, Адаптивність, Самоменеджмент."
+  },
+  "services": {
+    "header": {
+      "overline": "Що я можу зробити",
+      "title": "Послуги",
+      "subtitle": "Професійні рішення, адаптовані до ваших потреб, від концепції до живого безпечного сайту."
+    },
+    "list": [
+      {
+        "title": "Фронтенд розробка",
+        "description": "Створення адаптивних та зручних веб-сайтів за допомогою HTML, CSS, Bootstrap, SCSS та JavaScript."
+      },
+      {
+        "title": "JavaScript розробка",
+        "description": "Створення інтерактивних елементів, валідація форм та динамічний контент за допомогою сучасного JavaScript ES6+."
+      },
+      {
+        "title": "Адаптивний дизайн",
+        "description": "Розробка макетів, які коректно працюють на мобільних, планшетних та десктопних пристроях для найкращого UX."
+      },
+      {
+        "title": "React-застосунки",
+        "description": "Створення простих та функціональних React-застосунків з компонентами, хуками та управлінням станом."
+      },
+      {
+        "title": "Основи бекенду",
+        "description": "Створення базової бекенд-функціональності з Node.js, Express та REST API для ваших застосунків."
+      },
+      {
+        "title": "Контроль версій",
+        "description": "Робота з Git та GitHub для контролю версій, співпраці та безпечного розгортання проєктів."
+      },
+      {
+        "title": "Домен та хостинг",
+        "description": "Допомога з реєстрацією домену, налаштуванням SSL та розгортанням проєктів на Vercel, Netlify або VPS."
+      }
+    ],
+    "cta": {
+      "button": "Розпочати проєкт разом",
+      "subtitle": "Маєте конкретне завдання? Обговоримо!"
+    }
+  },
+  "skills": {
+    "header": {
+      "overline": "Мій стек",
+      "title": "Full-Stack навички"
+    },
+    "groups": [
+      {
+        "title": "Фронтенд розробка",
+        "tags": ["Context API"],
+        "skills": [
+          { "name": "React.js / Redux", "value": 70 },
+          { "name": "JavaScript (ES6+)", "value": 80 },
+          { "name": "HTML5 / CSS3 / SASS", "value": 90 },
+          { "name": "MUI / Tailwind CSS", "value": 80 }
+        ]
+      },
+      {
+        "title": "Бекенд та бази даних",
+        "tags": ["JWT", "Brevo", "OAuth"],
+        "skills": [
+          { "name": "Node.js / Express", "value": 80 },
+          { "name": "RESTful APIs / GraphQL", "value": 75 },
+          { "name": "MongoDB / Mongoose", "value": 80 },
+          { "name": "SQL (PostgreSQL/MySQL)", "value": 70 }
+        ]
+      },
+      {
+        "title": "Інструменти та DevOps",
+        "tags": [],
+        "skills": [
+          { "name": "Git / GitHub", "value": 90 },
+          { "name": "Docker / CI/CD", "value": 70 },
+          { "name": "Postman / Insomnia", "value": 90 },
+          { "name": "Render / Vercel", "value": 80 }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "header": {
+      "overline": "Контакти",
+      "title": "Давайте втілимо ваші ідеї!"
+    },
+    "form": {
+      "name": "Ваше ім'я",
+      "email": "Електронна пошта",
+      "message": "Деталі проєкту",
+      "submit": {
+        "sending": "Відправка...",
+        "default": "Відправити повідомлення"
+      },
+      "validation": {
+        "name_short": "Ім'я занадто коротке",
+        "name_long": "Ім'я занадто довге",
+        "email_invalid": "Невірний формат електронної пошти",
+        "required": "Обов'язкове поле",
+        "message_short": "Повідомлення занадто коротке",
+        "message_long": "Повідомлення занадто довге"
+      }
+    },
+    "details": {
+      "title": "Контактна інформація",
+      "follow": "Слідкуйте за мною",
+      "items": {
+        "email": "Електронна пошта",
+        "phone": "Телефон",
+        "location": "Локація"
+      }
+    }
+  }
+}

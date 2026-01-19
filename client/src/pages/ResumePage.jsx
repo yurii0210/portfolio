@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next'; 
 import myCertificate from '../images/certificate.pdf';
 import {
   Container,
@@ -8,33 +9,18 @@ import {
   Box,
   Divider,
   Button,
-  Chip, 
-  Stack
+  Chip,
 } from '@mui/material';
 import {
-  AssignmentInd as ResumeIcon,
   School as SchoolIcon,
   WorkspacePremium as CertificateIcon,
   Build as SkillsIcon,
-  Work as ExperienceIcon 
+  Work as ExperienceIcon,
+  RocketLaunch as RocketIcon
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 
-const skills = [
- 'JavaScript (ES6+)', 'TypeScript',
-  'React', 'Redux', 'Next.js',
-  'HTML5', 'CSS3', 'SCSS',
-  'MUI', 'Tailwind CSS', 'Bootstrap',
-  'Node.js', 'Express',
-  'REST APIs', 'JWT Authentication',
-  'PostgreSQL', 'MongoDB',
-  'Git', 'Docker', 'Docker Compose',
-  'CI/CD (GitHub Actions)',
-  'Jest', 'React Testing Library',
-  'Responsive Design'
-];
-
-const ResumeCard = ({ title, subtitle, date, description, link }) => (
+const ResumeCard = ({ title, subtitle, date, description, link, buttonText }) => (
   <Box sx={{ mb: 3 }}>
     <Typography variant="subtitle1" fontWeight={700} lineHeight={1.2}>
       {title}
@@ -43,7 +29,15 @@ const ResumeCard = ({ title, subtitle, date, description, link }) => (
       {subtitle} • {date}
     </Typography>
     {description && (
-      <Typography variant="body2" sx={{ mt: 1, color: 'text.primary' }}>
+      <Typography 
+        variant="body2" 
+        sx={{ 
+          mt: 1, 
+          color: 'text.primary', 
+          whiteSpace: 'pre-line', 
+          lineHeight: 1.6 
+        }}
+      >
         {description}
       </Typography>
     )}
@@ -52,18 +46,29 @@ const ResumeCard = ({ title, subtitle, date, description, link }) => (
         size="small"
         href={link}
         target="_blank"
-        rel="noopener noreferrer" // Security
+        rel="noopener noreferrer"
         startIcon={<CertificateIcon />}
         sx={{ mt: 1.5, textTransform: 'none', borderRadius: 2 }}
         variant="outlined"
       >
-        View Certificate
+        {buttonText || "View Certificate"}
       </Button>
     )}
   </Box>
 );
 
 const ResumePage = () => {
+  const { t } = useTranslation();
+
+  const skills = [
+    'JavaScript (ES6+)', 'TypeScript', 'React', 'Redux', 'Next.js',
+    'HTML5', 'CSS3', 'SCSS', 'MUI', 'Tailwind CSS', 'Bootstrap',
+    'Node.js', 'Express', 'REST APIs', 'JWT Authentication',
+    'PostgreSQL', 'MongoDB', 'Git', 'Docker', 'Docker Compose',
+    'CI/CD (GitHub Actions)', 'Jest', 'React Testing Library',
+    'Responsive Design'
+  ];
+
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
       <motion.div
@@ -72,87 +77,110 @@ const ResumePage = () => {
         transition={{ duration: 0.6 }}
       >
         {/* HEADER SECTION */}
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
+        <Box sx={{ textAlign: 'center', mb: 6 }}>
           <Typography
             variant="overline"
             color="primary"
             sx={{ fontWeight: 800, letterSpacing: 3, fontSize: '1rem', display: 'block', mb: 1 }}
           >
-            My Journey
+            {t('resume.header.journey')}
           </Typography>
-
           <Typography
-            variant="h2" 
+            variant="h2"
             sx={{ fontWeight: 800, fontSize: { xs: '2.5rem', md: '3.5rem' } }}
           >
-            Resume
+            {t('resume.header.title')}
           </Typography>
-
           <Typography variant="h5" sx={{ mt: 2, fontWeight: 500, color: 'text.secondary' }}>
-            Yurii — Full Stack JavaScript Developer
-          </Typography>
-
-          <Typography sx={{ mt: 3, maxWidth: 700, mx: 'auto', color: 'text.secondary', fontSize: '1.1rem' }}>
-            Motivated Full Stack Developer focused on building scalable, 
-            responsive web applications with clean UI and solid architecture.
+            {t('resume.header.subtitle')}
           </Typography>
         </Box>
 
+        {/* CAREER OBJECTIVE SECTION */}
+        <Paper
+          elevation={0}
+          sx={{
+            p: 4,
+            borderRadius: 4,
+            mb: 5,
+            border: '1px solid',
+            borderColor: 'divider',
+            background: (theme) => 
+              theme.palette.mode === 'dark' 
+                ? `linear-gradient(45deg, ${theme.palette.background.paper} 10%, #2c2c2c 90%)`
+                : `linear-gradient(45deg, ${theme.palette.background.paper} 10%, #f5f5f5 90%)`,
+          }}
+        >
+          <Typography variant="h6" sx={{ fontWeight: 700, mb: 2, display: 'flex', alignItems: 'center', gap: 1.5 }}>
+            <RocketIcon color="primary" /> {t('resume.careerObjective.title')}
+          </Typography>
+          <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8, fontSize: '1.05rem', whiteSpace: 'pre-line' }}>
+            {t('resume.careerObjective.description')}
+          </Typography>
+        </Paper>
+
         <Grid container spacing={4}>
-          {/* LEFT COLUMN: Education & Experience */}
+          {/* LEFT COLUMN: Experience & Education */}
           <Grid item xs={12} md={7}>
+            {/* EXPERIENCE */}
             <Paper
               elevation={0}
               sx={{ p: 4, borderRadius: 4, mb: 4, border: '1px solid', borderColor: 'divider' }}
             >
               <Typography variant="h5" sx={{ fontWeight: 700, mb: 4, display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                <SchoolIcon color="primary" /> Education
+                <ExperienceIcon color="primary" /> {t('resume.sections.experience')}
               </Typography>
-
               <ResumeCard
-                title="Full Stack JavaScript Development"
-                subtitle="Hillel IT School"
-                date="2025"
-                description="Advanced full stack program focused on React, Node.js, REST APIs, SQL, Git and real-world projects."
-                link="https://certificate.ithillel.ua/view/40638780"
-              />
-
-              <Divider sx={{ my: 4 }} />
-
-              <ResumeCard
-                title="Web Development Basics"
-                subtitle="IT Network School"
-                date="2025"
-                description="Frontend fundamentals: HTML, CSS, JavaScript, responsive design, Bootstrap, SCSS."
-                link={myCertificate}
+                title={t('resume.cards.experience1.title')}
+                subtitle={t('resume.cards.experience1.subtitle')}
+                date={t('resume.cards.experience1.date')}
+                description={t('resume.cards.experience1.description')}
               />
             </Paper>
 
+            {/* EDUCATION */}
             <Paper
               elevation={0}
               sx={{ p: 4, borderRadius: 4, border: '1px solid', borderColor: 'divider' }}
             >
               <Typography variant="h5" sx={{ fontWeight: 700, mb: 4, display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                <ExperienceIcon color="primary" /> Experience
+                <SchoolIcon color="primary" /> {t('resume.sections.education')}
               </Typography>
-
               <ResumeCard
-                title="Full Stack Developer (Projects)"
-                subtitle="Personal & Educational Projects"
-                date="2025 – Present"
-                description="Development of full stack applications with authentication, CRUD, REST APIs, Redux, SQL databases and responsive UI."
+                title={t('resume.cards.education1.title')}
+                subtitle={t('resume.cards.education1.subtitle')}
+                date={t('resume.cards.education1.date')}
+                description={t('resume.cards.education1.description')}
+                link="https://certificate.ithillel.ua/view/40638780"
+                buttonText={t('resume.cards.education1.linkText')}
+              />
+              <Divider sx={{ my: 4 }} />
+              <ResumeCard
+                title={t('resume.cards.education2.title')}
+                subtitle={t('resume.cards.education2.subtitle')}
+                date={t('resume.cards.education2.date')}
+                description={t('resume.cards.education2.description')}
+                link={myCertificate}
+                buttonText={t('resume.cards.education2.linkText')}
               />
             </Paper>
           </Grid>
 
-          {/* RIGHT COLUMN: Skills & Career */}
+          {/* RIGHT COLUMN: Skills */}
           <Grid item xs={12} md={5}>
             <Paper
               elevation={0}
-              sx={{ p: 4, borderRadius: 4, mb: 4, backgroundColor: 'primary.main', color: 'primary.contrastText' }}
+              sx={{ 
+                p: 4, 
+                borderRadius: 4, 
+                position: 'sticky', 
+                top: 24, 
+                backgroundColor: 'primary.main', 
+                color: 'primary.contrastText' 
+              }}
             >
               <Typography variant="h6" sx={{ fontWeight: 700, mb: 3, display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                <SkillsIcon /> Key Skills
+                <SkillsIcon /> {t('resume.sections.technicalStack')}
               </Typography>
               
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
@@ -164,25 +192,24 @@ const ResumePage = () => {
                       bgcolor: 'rgba(255,255,255,0.15)', 
                       color: '#fff', 
                       fontWeight: 600,
-                      backdropFilter: 'blur(4px)' 
+                      backdropFilter: 'blur(4px)',
+                      border: '1px solid rgba(255,255,255,0.2)',
+                      '&:hover': {
+                        bgcolor: 'rgba(255,255,255,0.25)',
+                      }
                     }} 
                   />
                 ))}
               </Box>
-            </Paper>
 
-            <Paper
-              elevation={0}
-              sx={{ p: 4, borderRadius: 4, border: '1px solid', borderColor: 'divider' }}
-            >
-              <Typography variant="h6" fontWeight={700} mb={2}>
-                Career Focus
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.7 }}>
-                Currently looking for <b>Junior / Middle Full Stack Developer</b> roles. 
-                I am passionate about building products that solve real-world problems 
-                and eager to contribute to a professional engineering team.
-              </Typography>
+              <Box sx={{ mt: 5 }}>
+                 <Typography variant="subtitle2" sx={{ opacity: 0.8, mb: 1, fontWeight: 700 }}>
+                    {t('resume.sections.softSkills')}
+                 </Typography>
+                 <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
+                    {t('resume.softSkillsDescription')}
+                 </Typography>
+              </Box>
             </Paper>
           </Grid>
         </Grid>
