@@ -1,84 +1,74 @@
-import React from 'react';
+import React, { lazy, Suspense, useEffect, useMemo } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import './i18n';
 
-// Importing page components for routing
-import HomePage from './pages/HomePage';
-import PortfolioPage from './pages/PortfolioPage';
-import SkillsPage from './pages/SkillsPage';
-import ResumePage from './pages/ResumePage';
-import ServicesPage from './pages/ServicesPage';  
-import ContactPage from './pages/ContactPage';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-
-// Importing Material UI theme utilities
+// MUI
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 
-/**
- * Custom Dark Theme Configuration
- * Defines the color palette and typography for the entire application.
- */
-const theme = createTheme({
-  palette: {
-    mode: 'dark',
-    primary: {
-      main: '#2196f3', // Blue
-    },
-    secondary: {
-      main: '#f50057', // Pink/Red
-    },
-    background: {
-      default: '#0a1929', // Dark deep blue background
-      paper: '#001e3c',   // Slightly lighter blue for cards/surfaces
-    },
-  },
-  typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-    h1: {
-      fontSize: '3rem',
-      fontWeight: 700,
-    },
-    h2: {
-      fontSize: '2.5rem',
-      fontWeight: 600,
-    },
-  },
-});
+// Layout
+const Navbar = lazy(() => import('./components/Navbar'));
+const Footer = lazy(() => import('./components/Footer'));
 
-
+// Pages (ROUTE-BASED SPLITTING)
+const HomePage = lazy(() => import('./pages/HomePage'));
+const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
+const SkillsPage = lazy(() => import('./pages/SkillsPage'));
+const ResumePage = lazy(() => import('./pages/ResumePage'));
+const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
 
 function App() {
-  return (
-    // Providing Redux Store to the entire application
-    <Provider store={store}>
-      {/* Applying the custom Material UI theme */}
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kicks out browser inconsistencies and applies default dark mode styles */}
-        <CssBaseline />
-        <Router>
-          {/* Main layout container with sticky footer support */}
-          <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-            <Navbar />
-            
-            {/* Main Content Area - flexGrow: 1 ensures it fills remaining space */}
-            <Box component="main" sx={{ flexGrow: 1, py: 4 }}>
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/portfolio" element={<PortfolioPage />} />
-                <Route path="/skills" element={<SkillsPage />} />
-                <Route path="/resume" element={<ResumePage />} /> 
-                <Route path="/services" element={<ServicesPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-              </Routes>
-            </Box>
 
-            <Footer />
-          </div>
+  // ✅ createTheme — только один раз
+  const theme = useMemo(() => createTheme({
+    palette: {
+      mode: 'dark',
+      primary: { main: '#2196f3' },
+      secondary: { main: '#f50057' },
+      background: {
+        default: '#0a1929',
+        paper: '#001e3c',
+      },
+    },
+    typography: {
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+      h1: { fontSize: '3rem', fontWeight: 700 },
+      h2: { fontSize: '2.5rem', fontWeight: 600 },
+    },
+  }), []);
+
+  // ✅ i18n ПОСЛЕ первого paint
+  useEffect(() => {
+    import('./i18n');
+  }, []);
+
+  return (
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+
+        <Router>
+          <Suspense fallback={null}>
+            <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+              <Navbar />
+
+              <Box component="main" sx={{ flexGrow: 1, py: 4 }}>
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/portfolio" element={<PortfolioPage />} />
+                  <Route path="/skills" element={<SkillsPage />} />
+                  <Route path="/resume" element={<ResumePage />} />
+                  <Route path="/services" element={<ServicesPage />} />
+                  <Route path="/contact" element={<ContactPage />} />
+                </Routes>
+              </Box>
+
+              <Footer />
+            </div>
+          </Suspense>
         </Router>
       </ThemeProvider>
     </Provider>

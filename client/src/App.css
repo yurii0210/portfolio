@@ -1,46 +1,12 @@
-/* Main container alignment */
 .App {
-  text-align: center;
-}
-
-/* React logo styling */
-.App-logo {
-  height: 40vmin;
-  pointer-events: none; /* Prevents interaction with the logo image */
-}
-
-/* Animation trigger: 
-   Only enables rotation if the user hasn't requested reduced motion in OS settings 
-*/
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-/* Main header section styling */
-.App-header {
-  background-color: #282c34; /* Dark slate background */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin); /* Responsive font size based on viewport */
-  color: white;
 }
 
-/* Link styling (React light blue color) */
-.App-link {
-  color: #61dafb;
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
 }
 
-/* Keyframes for the continuous 360-degree rotation */
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
