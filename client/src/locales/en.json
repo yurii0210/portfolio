@@ -78,7 +78,8 @@
     "header": {
       "journey": "My Journey",
       "title": "Resume",
-      "subtitle": "Yurii — Frontend Developer | Full Stack Experience"
+      "subtitle": "Yurii — Frontend Developer | Full Stack Experience",
+      "downloadButton": "Download CV"
     },
     "careerObjective": {
       "title": "Career Objective",

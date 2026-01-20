@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next'; 
 import myCertificate from '../images/certificate.pdf';
+import myResumeFile from '../images/CV_Yurii_Zvirianskyi_Full_Stack.pdf'; 
+
 import {
   Container,
   Typography,
@@ -16,7 +18,8 @@ import {
   WorkspacePremium as CertificateIcon,
   Build as SkillsIcon,
   Work as ExperienceIcon,
-  RocketLaunch as RocketIcon
+  RocketLaunch as RocketIcon,
+  Download as DownloadIcon
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 
@@ -91,9 +94,34 @@ const ResumePage = () => {
           >
             {t('resume.header.title')}
           </Typography>
-          <Typography variant="h5" sx={{ mt: 2, fontWeight: 500, color: 'text.secondary' }}>
+          <Typography variant="h5" sx={{ mt: 2, fontWeight: 500, color: 'text.secondary', mb: 4 }}>
             {t('resume.header.subtitle')}
           </Typography>
+
+          {/* Button to download resume */}
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            href={myResumeFile}
+            download="CV_Yurii_Zvirianskyi.pdf"
+            startIcon={<DownloadIcon />}
+            sx={{ 
+              borderRadius: 3, 
+              px: 4, 
+              py: 1.5, 
+              textTransform: 'none',
+              fontWeight: 700,
+              boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+              '&:hover': {
+                transform: 'translateY(-2px)',
+                boxShadow: '0 12px 20px rgba(0,0,0,0.15)',
+              },
+              transition: 'all 0.3s'
+            }}
+          >
+            {t('resume.header.downloadButton') || "Download CV"}
+          </Button>
         </Box>
 
         {/* CAREER OBJECTIVE SECTION */}
@@ -166,7 +194,7 @@ const ResumePage = () => {
             </Paper>
           </Grid>
 
-          {/* RIGHT COLUMN: Skills */}
+          {/* RIGHT COLUMN: Skills & Languages */}
           <Grid item xs={12} md={5}>
             <Paper
               elevation={0}
@@ -203,6 +231,19 @@ const ResumePage = () => {
               </Box>
 
               <Box sx={{ mt: 5 }}>
+                 <Typography variant="subtitle2" sx={{ opacity: 0.8, mb: 1, fontWeight: 700 }}>
+                    {t('resume.sections.languages')}
+                 </Typography>
+                 <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
+                    {/* Виправлено рівні мов словами */}
+                    • Ukrainian: Native <br />
+                    • Russian: Native <br />
+                    • Czech: Professional working proficiency <br />
+                    • English: Beginner
+                 </Typography>
+              </Box>
+
+              <Box sx={{ mt: 3 }}>
                  <Typography variant="subtitle2" sx={{ opacity: 0.8, mb: 1, fontWeight: 700 }}>
                     {t('resume.sections.softSkills')}
                  </Typography>

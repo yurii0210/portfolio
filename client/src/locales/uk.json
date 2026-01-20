@@ -76,7 +76,8 @@
     "header": {
       "journey": "Мій шлях",
       "title": "Резюме",
-      "subtitle": "Юрій — Frontend розробник | Досвід Full Stack"
+      "subtitle": "Юрій — Frontend розробник | Досвід Full Stack",
+      "downloadButton": "Завантажити CV"
     },
     "careerObjective": {
       "title": "Мета кар'єри",

@@ -78,7 +78,8 @@
     "header": {
       "journey": "Moje cesta",
       "title": "Životopis",
-      "subtitle": "Jurij — Frontend Developer | Zkušenosti s Full Stack"
+      "subtitle": "Jurij — Frontend Developer | Zkušenosti s Full Stack",
+      "downloadButton": "Stáhnout CV"
     },
     "careerObjective": {
       "title": "Cíl kariéry",

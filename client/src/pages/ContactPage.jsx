@@ -80,7 +80,7 @@ const ContactPage = () => {
   const contactInfo = [
     { icon: <EmailIcon fontSize="small" />, title: t('contact.details.items.email'), value: 'uriy0210ck@gmail.com', link: 'mailto:uriy0210ck@gmail.com' },
     { icon: <PhoneIcon fontSize="small" />, title: t('contact.details.items.phone'), value: '+420 608-499-682', link: 'tel:+420608499682' },
-    { icon: <LocationIcon fontSize="small" />, title: t('contact.details.items.location'), value: 'Tabor, Czech Republic', link: 'https://goo.gl/maps/...' },
+    { icon: <LocationIcon fontSize="small" />, title: t('contact.details.items.location'), value: 'Tabor, Czech Republic', link: 'https://maps.app.goo.gl/q2KzQ2ubodnic5T77' },
   ];
 
   const socialLinks = [
