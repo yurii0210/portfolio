@@ -130,13 +130,46 @@ const PortfolioSection = () => {
                 sx={{ display: 'flex' }}
               >
                 <Card sx={{ 
-                  display: 'flex', flexDirection: 'column', width: '100%',
-                  borderRadius: 4, position: 'relative', overflow: 'hidden',
-                  border: '1px solid', borderColor: 'divider',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                  '&:hover': { boxShadow: theme.shadows[15], transform: 'translateY(-8px)' },
-                  '&:hover .overlay': { opacity: 1 },
-                  '&:hover img': { transform: 'scale(1.1)' }
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: 4, 
+                  position: 'relative', 
+                  overflow: 'hidden',
+                  backgroundColor: 'background.paper',
+                  border: '1px solid', 
+                  borderColor: 'divider',
+                  cursor: 'pointer',
+                  transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease',
+                  '&:hover': { 
+                  transform: 'translateY(-12px)', // Картка піднімається
+                  borderColor: 'primary.main',     // Рамка стає акцентною (зеленою)
+                  boxShadow: theme.palette.mode === 'dark'? '0 22px 40px rgba(0,0,0,0.7)':'0 22px 40px rgba(0,0,0,0.15)',
+                },
+                '& .MuiCardMedia-root': {
+                  transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                },
+                '&:hover .MuiCardMedia-root': { 
+                  transform: 'scale(1.1)', 
+                },
+                '& .overlay': {
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  opacity: 0,
+                  transition: 'opacity 0.3s ease, backdrop-filter 0.3s ease',
+                  zIndex: 2,
+                },
+                '&:hover .overlay': { 
+                  opacity: 1,
+                  backdropFilter: 'blur(4px)',}
                 }}>
                   <Box sx={{ position: 'relative', overflow: 'hidden', pt: '75%' }}>
                     <CardMedia

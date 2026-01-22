@@ -214,6 +214,12 @@ const HomePage = () => {
                       boxShadow: theme.shadows[10],
                       position: 'relative',
                       zIndex: 1,
+                      '&:hover': {
+                      transform: 'scale(1.02)',
+                      transition: 'transform 0.3s ease-in-out',
+                      boxShadow: `0 0 20px ${theme.palette.primary.main}`, 
+                    },
+                      
                     }}
                   />
                 </Box>
