@@ -12,30 +12,32 @@
 
   <title>Yurii Zvirianskyi | Full-stack Developer</title>
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://yurii0210.github.io/portfolio/" />
   <meta property="og:title" content="Yurii Zvirianskyi | Full-stack Developer Portfolio" />
   <meta property="og:description" content="Explore my projects in React, Node.js and modern web design." />
   <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
 
-  <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://yurii0210.github.io/portfolio/" />
   <meta property="twitter:title" content="Yurii Zvirianskyi | Full-stack Developer" />
   <meta property="twitter:description" content="Professional web development services and portfolio." />
   <meta property="twitter:image" content="%PUBLIC_URL%/og-image.jpg" />
 
-  <!-- Manifest & Apple Icon -->
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.webp" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-  <!-- Google Analytics -->
-  <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-ZY4YVQCFBY"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZY4YVQCFBY"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-ZY4YVQCFBY');
+
+    // Cookie GitHub Pages
+    gtag('config', 'G-ZY4YVQCFBY', {
+      'cookie_domain': 'auto', 
+      'cookie_flags': 'SameSite=None;Secure' 
+    });
   </script>
 </head>
 
