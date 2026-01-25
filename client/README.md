@@ -97,7 +97,7 @@ This project is deployed on **GitHub Pages**, but can also be hosted on:
 
 Feel free to reach out:
 
-- **Email:** uriy0210ck@gmail.com  
+- **Email:** zvirianskyi@seznam.cz  
 - **Phone:** +420 608-499-682  
 - **Location:** Tabor, Czech Republic  
 
