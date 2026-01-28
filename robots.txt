@@ -1,11 +1,4 @@
-# General settings for all search engines
 User-agent: *
 Allow: /
 
-Disallow: /tmp/
-Disallow: /build/
-
-Allow: /static/
-
-# Sitemap з правильним URL на GitHub Pages
 Sitemap: https://yurii0210.github.io/portfolio/sitemap.xml
