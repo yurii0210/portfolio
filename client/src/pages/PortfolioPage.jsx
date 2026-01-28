@@ -15,6 +15,7 @@ import FullStackImg from '../images/full-stack.webp';
 import ReactLogoImg from '../images/react-logo.webp';
 import MoonImg from '../images/moon.webp';
 import PugImg from '../images/pug-logo.webp';
+import TenantManagerImg from '../images/tenant.webp';
 
 const PortfolioSection = () => {
   const { t } = useTranslation();
@@ -27,6 +28,8 @@ const PortfolioSection = () => {
     3: ReactLogoImg,
     4: MoonImg,
     5: PugImg,
+    6: TenantManagerImg,
+   
   };
 
   const projects = [
@@ -74,6 +77,15 @@ const PortfolioSection = () => {
       githubLink: 'https://github.com/yurii0210',
       title: 'Express Templates. \nWorking with PUG and EJS',
       tech: 'Node.js, Express, PUG, EJS'
+    },
+     {
+      id: 6,
+      category: 'fullstack',
+      image: projectImages[6],
+      demoLink: 'https://github.com/yurii0210/tenant-manager-system.git',
+      githubLink: 'https://github.com/yurii0210',
+      title: 'Full Stack Website. \nWeb application with interactive frontend...',
+      tech: 'Node.js, Express, React, MongoDB'
     },
   ];
 
@@ -143,8 +155,8 @@ const PortfolioSection = () => {
                   cursor: 'pointer',
                   transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease',
                   '&:hover': { 
-                  transform: 'translateY(-12px)', // Картка піднімається
-                  borderColor: 'primary.main',     // Рамка стає акцентною (зеленою)
+                  transform: 'translateY(-12px)', 
+                  borderColor: 'primary.main',     
                   boxShadow: theme.palette.mode === 'dark'? '0 22px 40px rgba(0,0,0,0.7)':'0 22px 40px rgba(0,0,0,0.15)',
                 },
                 '& .MuiCardMedia-root': {
