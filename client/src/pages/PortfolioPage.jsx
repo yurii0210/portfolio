@@ -84,8 +84,8 @@ const PortfolioSection = () => {
       image: projectImages[6],
       demoLink: 'https://github.com/yurii0210/tenant-manager-system.git',
       githubLink: 'https://github.com/yurii0210',
-      title: 'Full Stack Website. \nWeb application with interactive frontend...',
-      tech: 'Node.js, Express, React, MongoDB'
+      title: 'Full Stack Website. \nWeb application with interactive frontend, backend API, and PostgreSQL database for seamless property and lease management.',
+      tech: 'Node.js, Express, React, PostgreSQL'
     },
   ];
 
