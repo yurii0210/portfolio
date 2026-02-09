@@ -2,7 +2,7 @@
   "name": "portfolio-frontend",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://yurii0210.github.io/portfolio/",
+  "homepage": ".",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -45,7 +45,6 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ],
-    "homepage": "."
+    ]
   }
 }
