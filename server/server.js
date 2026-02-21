@@ -10,7 +10,7 @@ const app = express();
 
 // --- MIDDLEWARE ---
 app.use(cors({
-    origin: ['https://yurii0210.github.io', 'http://localhost:3000'],
+    origin: ['https://zvirianskyi.dev', 'http://localhost:3000'],
     methods: ['GET', 'POST'],
     credentials: true
 }));
