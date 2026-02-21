@@ -117,7 +117,7 @@
   },
    "services": {
     "header": {
-      "overline": "What I Can Do",
+      "overline": "What I Do",
       "title": "Services",
       "subtitle": "Professional solutions tailored to your needs, from initial concept to a live, secure website."
     },
@@ -149,6 +149,10 @@
       {
         "title": "Domain & Hosting",
         "description": "Assistance with domain registration, SSL setup, and deploying projects to Vercel, Netlify or VPS."
+      },
+      {
+        "title": "SEO Optimization",
+        "description": "Professional search engine optimization to improve Google visibility, increase organic traffic, and attract more clients."
       }
     ],
     "cta": {

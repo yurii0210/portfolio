@@ -117,7 +117,7 @@
   },
   "services": {
     "header": {
-      "overline": "Co umím",
+      "overline": "S čím vám mohu pomoci",
       "title": "Služby",
       "subtitle": "Profesionální řešení přizpůsobená vašim potřebám, od konceptu po živou bezpečnou webovou stránku."
     },
@@ -149,6 +149,10 @@
       {
         "title": "Doména a hosting",
         "description": "Pomoc s registrací domény, nastavením SSL a nasazením projektů na Vercel, Netlify nebo VPS."
+      },
+      {
+        "title": "SEO Optimalizace",
+        "description": "Profesionální nastavení meta tagů, optimalizace rychlosti načítání a zvýšení viditelnosti vašeho webu ve vyhledávačích jako Google."
       }
     ],
     "cta": {

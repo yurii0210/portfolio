@@ -43,7 +43,7 @@ const Navbar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-  // ⚠️ без suspense, щоб не блокувати перший paint
+  // ⚠️Without React Suspense to prevent blocking the initial paint.
   const { t } = useTranslation(undefined, { useSuspense: false });
 
   const menuItems = useMemo(() => ([
