@@ -81,7 +81,7 @@ const ContactPage = () => {
   };
 
   const contactInfo = [
-    { icon: <EmailIcon fontSize="small" />, title: t('contact.details.items.email'), value: 'contact@zvirianskyi.dev', link: 'mailto:zvirianskyi@seznam.cz' },
+    { icon: <EmailIcon fontSize="small" />, title: t('contact.details.items.email'), value: 'contact@zvirianskyi.dev', link: 'mailto:contact@zvirianskyi.dev' },
     { icon: <PhoneIcon fontSize="small" />, title: t('contact.details.items.phone'), value: '+420 608-499-682', link: 'tel:+420608499682' },
     { icon: <LocationIcon fontSize="small" />, title: t('contact.details.items.location'), value: 'Tabor, Czech Republic', link: 'https://goo.gl/maps/...' },
   ];
