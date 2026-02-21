@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yurii0210.github.io/portfolio/sitemap.xml
+Sitemap: https://zvirianskyi.dev/sitemap.xml
