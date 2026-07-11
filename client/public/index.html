@@ -1,51 +1,86 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
+
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" type="image/webp" href="%PUBLIC_URL%/favicon.webp" />
+  <!-- Basic -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#1976d2" />
-  <meta name="description" content="Portfolio of Yurii Zvirianskyi. Full-stack development, React, Node.js and modern web solutions." />
-  <meta name="robots" content="index, follow" />
+
+  <title>Yurii Zvirianskyi | Full Stack JavaScript Developer</title>
+
+  <meta
+    name="description"
+    content="Portfolio of Yurii Zvirianskyi, Full Stack JavaScript Developer specializing in React, Node.js, Express, MongoDB and modern web applications."/>
+  <meta
+    name="keywords"
+    content="Full Stack Developer, JavaScript, React, Node.js, Express, MongoDB, Portfolio, Frontend Developer, Backend Developer"/>
   <meta name="author" content="Yurii Zvirianskyi" />
+  <meta name="robots" content="index, follow" />
+
   <link rel="canonical" href="https://zvirianskyi.dev/" />
-
-  <title>Yurii Zvirianskyi | Full-stack Developer</title>
-
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://zvirianskyi.dev/" />
-  <meta property="og:title" content="Yurii Zvirianskyi | Full-stack Developer Portfolio" />
-  <meta property="og:description" content="Explore my projects in React, Node.js and modern web design." />
-  <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
-
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://zvirianskyi.dev/" />
-  <meta property="twitter:title" content="Yurii Zvirianskyi | Full-stack Developer" />
-  <meta property="twitter:description" content="Professional web development services and portfolio." />
-  <meta property="twitter:image" content="%PUBLIC_URL%/og-image.jpg" />
-
+  <!-- Icons -->
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="icon" type="image/webp" href="%PUBLIC_URL%/favicon.webp" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.webp" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Yurii Zvirianskyi Portfolio" />
+  <meta property="og:url" content="https://zvirianskyi.dev/" />
+  <meta property="og:title" content="Yurii Zvirianskyi | Full Stack JavaScript Developer" />
+  <meta
+    property="og:description"
+    content="Explore my portfolio featuring React, Node.js, Express, MongoDB and modern web applications." />
+  <meta property="og:image" content="https://zvirianskyi.dev/og-image.jpg" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Yurii Zvirianskyi | Full Stack JavaScript Developer" />
+  <meta
+    name="twitter:description"
+    content="Portfolio featuring React, Node.js, Express and MongoDB projects." />
+  <meta name="twitter:image" content="https://zvirianskyi.dev/og-image.jpg" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Yurii Zvirianskyi",
+    "url":"https://zvirianskyi.dev",
+    "jobTitle":"Full Stack JavaScript Developer",
+    "image":"https://zvirianskyi.dev/og-image.jpg",
+    "sameAs":[
+      "https://github.com/yurii0210",
+      "https://www.linkedin.com/in/yurii-zvirianskyi-37a88433b"
+    ]
+  }
+  </script>
   <!-- Google Tag Manager -->
   <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),
+      dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GT-T56G4RT8');
   </script>
-  <!-- End Google Tag Manager -->
-
-  <!-- GA4  -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZY4YVQCFBY"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
+
     gtag('config', 'G-ZY4YVQCFBY', {
-      'cookie_domain': 'auto', 
-      'cookie_flags': 'SameSite=None;Secure' 
+      cookie_domain: 'auto',
+      cookie_flags: 'SameSite=None;Secure'
     });
   </script>
 </head>
@@ -53,12 +88,18 @@
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GT-T56G4RT8"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GT-T56G4RT8"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
   </noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
-  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <noscript>You need to enable JavaScript to run this application.</noscript>
+
   <div id="root"></div>
+
 </body>
+
 </html>

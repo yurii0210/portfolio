@@ -15,7 +15,7 @@ import FullStackImg from '../images/full-stack.webp';
 import ReactLogoImg from '../images/react-logo.webp';
 import MoonImg from '../images/moon.webp';
 import PugImg from '../images/pug-logo.webp';
-import TenantManagerImg from '../images/tenant.webp';
+import SearchImg from '../images/search.img.webp';
 
 const PortfolioSection = () => {
   const { t } = useTranslation();
@@ -28,7 +28,7 @@ const PortfolioSection = () => {
     3: ReactLogoImg,
     4: MoonImg,
     5: PugImg,
-    6: TenantManagerImg,
+    6: SearchImg,
    
   };
 
@@ -38,7 +38,7 @@ const PortfolioSection = () => {
       category: 'frontend',
       image: projectImages[1],
       demoLink: 'https://yurii0210.github.io/responsivni-web-figma/',
-      githubLink: 'https://github.com/yurii0210',
+      githubLink: 'https://github.com/yurii0210/responsivni-web-figma',
       title: 'Responsive Website. \nResponsive website with adaptive layout...',
       tech: 'HTML, CSS, Bootstrap'
     },
@@ -51,7 +51,7 @@ const PortfolioSection = () => {
       title: 'Full Stack Website. \nWeb application with interactive frontend...',
       tech: 'HTML, CSS, Bootstrap, JavaScript'
     },
-    {
+    /* {
       id: 3,
       category: 'react',
       image: projectImages[3],
@@ -59,17 +59,17 @@ const PortfolioSection = () => {
       githubLink: 'https://github.com/yurii0210',
       title: 'React Context App. \nState management using Context API',
       tech: 'React, JS, Context API'
-    },
+    }, */
     {
       id: 4,
       category: 'frontend',
       image: projectImages[4],
       demoLink: 'https://yurii0210.github.io/moon-earth/',
-      githubLink: 'https://github.com/yurii0210',
+      githubLink: 'https://github.com/yurii0210/moon-earth',
       title: 'Moon Animation. \nCSS based space animations',
       tech: 'HTML, CSS, Animations'
     },
-    {
+    /* {
       id: 5,
       category: 'frontend',
       image: projectImages[5],
@@ -77,15 +77,15 @@ const PortfolioSection = () => {
       githubLink: 'https://github.com/yurii0210',
       title: 'Express Templates. \nWorking with PUG and EJS',
       tech: 'Node.js, Express, PUG, EJS'
-    },
+    }, */
      {
       id: 6,
       category: 'fullstack',
       image: projectImages[6],
-      demoLink: 'https://github.com/yurii0210/tenant-manager-system.git',
-      githubLink: 'https://github.com/yurii0210',
-      title: 'Full Stack Website. \nWeb application with interactive frontend, backend API, and PostgreSQL database for seamless property and lease management.',
-      tech: 'Node.js, Express, React, PostgreSQL'
+      demoLink: 'https://google-search-app-02a0.onrender.com',
+      githubLink: 'https://github.com/yurii0210/google-search-app/tree/main',
+      title: 'Full Stack Website. \nA simple Node.js application that fetches organic Google search results using SerpAPI.',
+      tech: 'Node.js,Express.js,SerpAPI,Jest,Supertest,Docker'
     },
   ];
 

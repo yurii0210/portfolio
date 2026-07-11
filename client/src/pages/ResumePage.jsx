@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next'; 
 import myCertificate from '../images/certificate.pdf';
-import myResumeFile from '../images/CV_Yurii_Zvirianskyi_Full_Stack.pdf'; 
+import myResumeFile from '../images/cv_yurii_zvirianskyi_fs.pdf'; 
 
 import {
   Container,

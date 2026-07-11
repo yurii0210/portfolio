@@ -77,9 +77,6 @@ app.post('/api/contact', async (req, res) => {
        const apiKey = process.env.FINAL_PROD ? String(process.env.FINAL_PROD).trim() : null;
        const senderEmail = process.env.EMAIL_USER ? String(process.env.EMAIL_USER).trim() : null;
 
-        console.log('🛠 Debug: API Key (FINAL_PROD) exists:', !!apiKey);
-        console.log('🛠 Debug: Sender Email used:', senderEmail);
-
         if (!apiKey || apiKey === 'undefined') {
             throw new Error('API Key is undefined or missing in Render settings');
         }
